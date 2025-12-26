@@ -3,124 +3,158 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nukukie crafts - My Collection</title>
+    <title>Nukukie crafts</title>
     <style>
+        :root {
+            --bg-color: #fcfbf4; /* Creamy background from image */
+            --footer-bg: #d9b8a5; /* Earthy pinkish-tan from image */
+            --accent-brown: #333333;
+            --button-color: #3b3a36;
+        }
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #ffffff;
+            background-color: var(--bg-color);
             color: #333;
-            text-align: center;
         }
 
+        /* Header with Profile Pic */
         header {
-            padding: 40px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 60px 20px 40px 20px;
+            gap: 30px;
+        }
+
+        .profile-pic {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .header-text {
+            text-align: left;
         }
 
         h1 {
             font-size: 2.5rem;
-            margin-bottom: 5px;
-            color: #222;
+            margin: 0;
+            color: var(--accent-brown);
         }
 
-        /* Filter Links Styling */
         nav {
-            margin-bottom: 40px;
+            margin-top: 10px;
+            font-size: 1rem;
+            color: #555;
         }
 
         .filter-link {
-            font-size: 1.1rem;
-            color: #666;
             text-decoration: none;
-            margin: 0 10px;
+            color: #555;
             cursor: pointer;
-            transition: color 0.3s;
+            margin: 0 5px;
         }
 
-        .filter-link:hover, .filter-link.active {
-            color: #000;
+        .filter-link.active {
             font-weight: bold;
-            text-decoration: underline;
+            color: #000;
         }
 
         /* Product Grid */
         .product-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
             max-width: 1000px;
-            margin: 0 auto 120px auto;
+            margin: 0 auto 150px auto;
             padding: 0 20px;
         }
 
         .product-card {
+            background: white;
+            padding: 15px;
+            border-radius: 15px;
             text-align: left;
-            transition: transform 0.3s ease;
-        }
-
-        /* This class handles the hiding/showing */
-        .hidden {
-            display: none;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
         }
 
         .product-card img {
             width: 100%;
-            height: auto;
-            border-radius: 12px;
-            border: 1px solid #ddd;
-            background-color: #f5f5f5;
+            border-radius: 10px;
+            aspect-ratio: 1 / 1.2; /* Matches the vertical feel of your image */
+            object-fit: cover;
         }
 
         .product-card h3 {
+            font-size: 1.1rem;
             margin: 15px 0 5px 0;
-            font-size: 1.2rem;
         }
 
         .product-card p {
             margin: 0;
-            font-weight: bold;
+            font-size: 0.95rem;
+            color: #444;
         }
 
-        /* Fixed Bottom Button */
-        .footer-cta {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            background-color: #f3e5d8;
-            padding: 20px 0;
-            box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+        .hidden { display: none; }
+
+        /* Order Button & Footer */
+        .order-section {
+            text-align: center;
+            margin-bottom: 60px;
         }
 
         .order-button {
-            background-color: #5d4037;
+            background-color: var(--button-color);
             color: white;
-            padding: 15px 35px;
+            padding: 18px 40px;
             font-size: 1.1rem;
             text-decoration: none;
-            border-radius: 8px;
+            border-radius: 50px;
             display: inline-block;
+            transition: transform 0.2s;
         }
+
+        .order-button:hover {
+            transform: scale(1.05);
+        }
+
+        footer {
+            background-color: var(--footer-bg);
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .signature {
+            max-width: 80px;
+            opacity: 0.7;
+        }
+
     </style>
 </head>
 <body>
 
     <header>
-        <h1>Nukukie crafts</h1>
-        <nav>
-            <a class="filter-link active" onclick="filterProducts('all')">All</a> |
-            <a class="filter-link" onclick="filterProducts('calendar')">Calendars</a> |
-            <a class="filter-link" onclick="filterProducts('pin')">Pins</a> |
-            <a class="filter-link" onclick="filterProducts('sticker')">Stickers</a> |
-            <a class="filter-link" onclick="filterProducts('bookmark')">Bookmarks</a>
-        </nav>
+        <img src="nukukie.jpg" alt="Nukukie" class="profile-pic">
+        <div class="header-text">
+            <h1>Nukukie crafts</h1>
+            <nav>
+                <a class="filter-link active" onclick="filterProducts('all')"><b>All</b></a> | 
+                <a class="filter-link" onclick="filterProducts('calendar')">Calendars</a> | 
+                <a class="filter-link" onclick="filterProducts('pin')">Pins</a> | 
+                <a class="filter-link" onclick="filterProducts('sticker')">Stickers</a> | 
+                <a class="filter-link" onclick="filterProducts('bookmark')">Bookmarks</a>
+            </nav>
+        </div>
     </header>
 
-    <main class="product-grid" id="productGrid">
-        
+    <main class="product-grid">
         <div class="product-card calendar">
-            <img src="images/calendar.jpg" alt="2025 Calendar">
+            <img src="images/calendar.jpg" alt="Calendar">
             <h3>2025 Family Photo Calendar</h3>
             <p>Price: ₹499</p>
         </div>
@@ -136,27 +170,21 @@
             <h3>Sticker Packs</h3>
             <p>Price: ₹99</p>
         </div>
-
-        <div class="product-card bookmark">
-            <img src="images/bookmarks.jpg" alt="Bookmarks">
-            <h3>Artistic Bookmarks</h3>
-            <p>Price: ₹49</p>
-        </div>
-
     </main>
 
-    <section class="footer-cta">
-        <a href="https://docs.google.com/forms/d/1N1MEwqp5Iba0117onUlQqMqx7HHqFDzPSHZVVHVzMn4/edit?pli=1" class="order-button">
-            Place Your Order & Get Receipt
-        </a>
-    </section>
+    <div class="order-section">
+        <a href="YOUR_GOOGLE_FORM_LINK" class="order-button">Place Your Order & Get Receipt</a>
+    </div>
+
+    <footer>
+        <img src="signature.png" alt="NK Signature" class="signature">
+    </footer>
 
     <script>
         function filterProducts(category) {
             const products = document.querySelectorAll('.product-card');
             const links = document.querySelectorAll('.filter-link');
-
-            // Update active link styling
+            
             links.forEach(link => {
                 link.classList.remove('active');
                 if (link.textContent.toLowerCase().includes(category) || (category === 'all' && link.textContent === 'All')) {
@@ -164,7 +192,6 @@
                 }
             });
 
-            // Show or Hide products based on category
             products.forEach(product => {
                 if (category === 'all' || product.classList.contains(category)) {
                     product.classList.remove('hidden');
@@ -174,6 +201,5 @@
             });
         }
     </script>
-
 </body>
 </html>
