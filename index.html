@@ -6,8 +6,8 @@
     <title>Nukukie crafts</title>
     <style>
         :root {
-            --bg-color: #fcfbf4; /* Creamy background from image */
-            --footer-bg: #d9b8a5; /* Earthy pinkish-tan from image */
+            --bg-color: #fcfbf4; /* Creamy background */
+            --footer-bg: #d9b8a5; /* Earthy pinkish-tan */
             --accent-brown: #333333;
             --button-color: #3b3a36;
         }
@@ -70,7 +70,7 @@
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 25px;
             max-width: 1000px;
-            margin: 0 auto 150px auto;
+            margin: 0 auto 80px auto;
             padding: 0 20px;
         }
 
@@ -85,7 +85,7 @@
         .product-card img {
             width: 100%;
             border-radius: 10px;
-            aspect-ratio: 1 / 1.2; /* Matches the vertical feel of your image */
+            aspect-ratio: 1 / 1.2;
             object-fit: cover;
         }
 
@@ -139,11 +139,11 @@
 <body>
 
     <header>
-        <img src="images/nukukie1.jpg" alt="Nukukie" class="profile-pic">
+        <img src="nukukie.jpg" alt="Nukukie" class="profile-pic">
         <div class="header-text">
             <h1>Nukukie crafts</h1>
             <nav>
-                <a class="filter-link active" onclick="filterProducts('all')"><b>All</b></a> | 
+                <a class="filter-link active" onclick="filterProducts('all')">All</a> | 
                 <a class="filter-link" onclick="filterProducts('calendar')">Calendars</a> | 
                 <a class="filter-link" onclick="filterProducts('pin')">Pins</a> | 
                 <a class="filter-link" onclick="filterProducts('sticker')">Stickers</a> | 
@@ -152,7 +152,7 @@
         </div>
     </header>
 
-    <main class="product-grid">
+    <main class="product-grid" id="productGrid">
         <div class="product-card calendar">
             <img src="images/calendar.jpg" alt="Calendar">
             <h3>2025 Family Photo Calendar</h3>
@@ -170,14 +170,20 @@
             <h3>Sticker Packs</h3>
             <p>Price: ₹99</p>
         </div>
+
+        <div class="product-card bookmark">
+            <img src="images/bookmarks.jpg" alt="Bookmarks">
+            <h3>Artistic Bookmarks</h3>
+            <p>Price: ₹49</p>
+        </div>
     </main>
 
     <div class="order-section">
-        <a href="https://docs.google.com/forms/d/1N1MEwqp5Iba0117onUlQqMqx7HHqFDzPSHZVVHVzMn4/edit?pli=1" class="order-button">Place Your Order & Get Receipt</a>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSejCZi0WWlWtbkBu4tl3fF0PrGLsS-AgurIZOh0xPUuL4EOkw/viewform" class="order-button">Place Your Order & Get Receipt</a>
     </div>
 
     <footer>
-        <img src="images/signature.png" alt="NK Signature" class="signature">
+        <img src="signature.png" alt="NK Signature" class="signature">
     </footer>
 
     <script>
