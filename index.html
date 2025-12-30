@@ -67,9 +67,9 @@
         /* Product Grid */
         .product-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 25px;
-            max-width: 1000px;
+            max-width: 1200px;
             margin: 0 auto 80px auto;
             padding: 0 20px;
         }
@@ -80,18 +80,28 @@
             border-radius: 15px;
             text-align: left;
             box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+            width: 300px;
+            height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-self: center;
+        }
+
+        .product-card .carousel-container {
+            flex: 1;
+            margin-bottom: 15px;
         }
 
         .product-card img {
             width: 100%;
             border-radius: 10px;
-            aspect-ratio: 1 / 1.2;
+            aspect-ratio: 1 / 1;
             object-fit: cover;
         }
 
         .product-card h3 {
             font-size: 1.1rem;
-            margin: 15px 0 5px 0;
+            margin: 10px 0 5px 0;
         }
 
         .product-card p {
@@ -101,6 +111,86 @@
         }
 
         .hidden { display: none; }
+
+        /* Carousel Styles */
+        .carousel-container {
+            position: relative;
+            margin-bottom: 10px;
+        }
+
+        .carousel {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+
+        .carousel-images {
+            display: flex;
+            transition: transform 0.3s ease;
+        }
+
+        .carousel-images img {
+            width: 100%;
+            flex-shrink: 0;
+            border-radius: 10px;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+        }
+
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0,0,0,0.5);
+            color: white;
+            border: none;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 16px;
+            z-index: 10;
+        }
+
+        .carousel-btn:hover {
+            background-color: rgba(0,0,0,0.8);
+        }
+
+        .carousel-btn.prev {
+            left: 10px;
+        }
+
+        .carousel-btn.next {
+            right: 10px;
+        }
+
+        .carousel-indicators {
+            display: flex;
+            justify-content: center;
+            gap: 5px;
+            margin-top: 10px;
+        }
+
+        .indicator {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: #ccc;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .indicator.active {
+            background-color: var(--accent-brown);
+        }
+
+        /* Small card style for pins - override to match other cards */
+        .product-card.pin {
+            width: 300px;
+            height: 400px;
+            max-width: none;
+            margin: 0;
+        }
 
         /* Order Button & Footer */
         .order-section {
@@ -147,34 +237,493 @@
                 <a class="filter-link" onclick="filterProducts('calendar')">Calendars</a> | 
                 <a class="filter-link" onclick="filterProducts('pin')">Pins</a> | 
                 <a class="filter-link" onclick="filterProducts('sticker')">Stickers</a> | 
-                <a class="filter-link" onclick="filterProducts('bookmark')">Bookmarks</a>
+                <a class="filter-link" onclick="filterProducts('bookmark')">Bookmarks</a> | 
+                <a class="filter-link" onclick="filterProducts('magnetic')">Magnetic Bookmarks</a> | 
+                <a class="filter-link" onclick="filterProducts('postcard')">Postcards</a> | 
+                <a class="filter-link" onclick="filterProducts('keychain')">Keychains</a>
             </nav>
         </div>
     </header>
 
     <main class="product-grid" id="productGrid">
         <div class="product-card calendar">
-            <img src="images/calendar.jpg" alt="Calendar">
+            <div class="carousel-container">
+                <div class="carousel">
+                    <div class="carousel-images" id="calendar-carousel">
+                        <img src="images/calendar1.jpg" alt="Calendar Design 1">
+                        <img src="images/calendar2.jpg" alt="Calendar Design 2">
+                    </div>
+                    <button class="carousel-btn prev" onclick="prevImage('calendar-carousel')">&lt;</button>
+                    <button class="carousel-btn next" onclick="nextImage('calendar-carousel')">&gt;</button>
+                </div>
+                <div class="carousel-indicators">
+                    <span class="indicator active" onclick="showImage('calendar-carousel', 0)"></span>
+                    <span class="indicator" onclick="showImage('calendar-carousel', 1)"></span>
+                </div>
+            </div>
             <h3>2025 Family Photo Calendar</h3>
             <p>Price: ₹499</p>
         </div>
 
         <div class="product-card pin">
-            <img src="images/pins.jpg" alt="Pins">
-            <h3>Custom Enamel Pins</h3>
+            <div class="carousel-container">
+                <div class="carousel">
+                    <div class="carousel-images" id="pin-carousel">
+                        <img src="images/pin1.jpg" alt="Pin Design">
+                        <img src="images/pin1_detail.jpg" alt="Pin Design Detail">
+                    </div>
+                    <button class="carousel-btn prev" onclick="prevImage('pin-carousel')">&lt;</button>
+                    <button class="carousel-btn next" onclick="nextImage('pin-carousel')">&gt;</button>
+                </div>
+                <div class="carousel-indicators">
+                    <span class="indicator active" onclick="showImage('pin-carousel', 0)"></span>
+                    <span class="indicator" onclick="showImage('pin-carousel', 1)"></span>
+                </div>
+            </div>
+            <h3>Custom Enamel Pin</h3>
             <p>Price: ₹150</p>
         </div>
 
+        <!-- Stickers - 6 separate designs -->
         <div class="product-card sticker">
-            <img src="images/stickers.jpg" alt="Stickers">
-            <h3>Sticker Packs</h3>
+            <div class="carousel-container">
+                <div class="carousel">
+                    <div class="carousel-images" id="sticker1-carousel">
+                        <img src="images/sticker1.jpg" alt="Sticker Design 1">
+                        <img src="images/sticker1_detail.jpg" alt="Sticker Design 1 Detail">
+                    </div>
+                    <button class="carousel-btn prev" onclick="prevImage('sticker1-carousel')">&lt;</button>
+                    <button class="carousel-btn next" onclick="nextImage('sticker1-carousel')">&gt;</button>
+                </div>
+                <div class="carousel-indicators">
+                    <span class="indicator active" onclick="showImage('sticker1-carousel', 0)"></span>
+                    <span class="indicator" onclick="showImage('sticker1-carousel', 1)"></span>
+                </div>
+            </div>
+            <h3>Sticker Pack - Design 1</h3>
             <p>Price: ₹99</p>
         </div>
 
+        <div class="product-card sticker">
+            <div class="carousel-container">
+                <div class="carousel">
+                    <div class="carousel-images" id="sticker2-carousel">
+                        <img src="images/sticker2.jpg" alt="Sticker Design 2">
+                        <img src="images/sticker2_detail.jpg" alt="Sticker Design 2 Detail">
+                    </div>
+                    <button class="carousel-btn prev" onclick="prevImage('sticker2-carousel')">&lt;</button>
+                    <button class="carousel-btn next" onclick="nextImage('sticker2-carousel')">&gt;</button>
+                </div>
+                <div class="carousel-indicators">
+                    <span class="indicator active" onclick="showImage('sticker2-carousel', 0)"></span>
+                    <span class="indicator" onclick="showImage('sticker2-carousel', 1)"></span>
+                </div>
+            </div>
+            <h3>Sticker Pack - Design 2</h3>
+            <p>Price: ₹99</p>
+        </div>
+
+        <div class="product-card sticker">
+            <div class="carousel-container">
+                <div class="carousel">
+                    <div class="carousel-images" id="sticker3-carousel">
+                        <img src="images/sticker3.jpg" alt="Sticker Design 3">
+                        <img src="images/sticker3_detail.jpg" alt="Sticker Design 3 Detail">
+                    </div>
+                    <button class="carousel-btn prev" onclick="prevImage('sticker3-carousel')">&lt;</button>
+                    <button class="carousel-btn next" onclick="nextImage('sticker3-carousel')">&gt;</button>
+                </div>
+                <div class="carousel-indicators">
+                    <span class="indicator active" onclick="showImage('sticker3-carousel', 0)"></span>
+                    <span class="indicator" onclick="showImage('sticker3-carousel', 1)"></span>
+                </div>
+            </div>
+            <h3>Sticker Pack - Design 3</h3>
+            <p>Price: ₹99</p>
+        </div>
+
+        <div class="product-card sticker">
+            <div class="carousel-container">
+                <div class="carousel">
+                    <div class="carousel-images" id="sticker4-carousel">
+                        <img src="images/sticker4.jpg" alt="Sticker Design 4">
+                        <img src="images/sticker4_detail.jpg" alt="Sticker Design 4 Detail">
+                    </div>
+                    <button class="carousel-btn prev" onclick="prevImage('sticker4-carousel')">&lt;</button>
+                    <button class="carousel-btn next" onclick="nextImage('sticker4-carousel')">&gt;</button>
+                </div>
+                <div class="carousel-indicators">
+                    <span class="indicator active" onclick="showImage('sticker4-carousel', 0)"></span>
+                    <span class="indicator" onclick="showImage('sticker4-carousel', 1)"></span>
+                </div>
+            </div>
+            <h3>Sticker Pack - Design 4</h3>
+            <p>Price: ₹99</p>
+        </div>
+
+        <div class="product-card sticker">
+            <div class="carousel-container">
+                <div class="carousel">
+                    <div class="carousel-images" id="sticker5-carousel">
+                        <img src="images/sticker5.jpg" alt="Sticker Design 5">
+                        <img src="images/sticker5_detail.jpg" alt="Sticker Design 5 Detail">
+                    </div>
+                    <button class="carousel-btn prev" onclick="prevImage('sticker5-carousel')">&lt;</button>
+                    <button class="carousel-btn next" onclick="nextImage('sticker5-carousel')">&gt;</button>
+                </div>
+                <div class="carousel-indicators">
+                    <span class="indicator active" onclick="showImage('sticker5-carousel', 0)"></span>
+                    <span class="indicator" onclick="showImage('sticker5-carousel', 1)"></span>
+                </div>
+            </div>
+            <h3>Sticker Pack - Design 5</h3>
+            <p>Price: ₹99</p>
+        </div>
+
+        <div class="product-card sticker">
+            <div class="carousel-container">
+                <div class="carousel">
+                    <div class="carousel-images" id="sticker6-carousel">
+                        <img src="images/sticker6.jpg" alt="Sticker Design 6">
+                        <img src="images/sticker6_detail.jpg" alt="Sticker Design 6 Detail">
+                    </div>
+                    <button class="carousel-btn prev" onclick="prevImage('sticker6-carousel')">&lt;</button>
+                    <button class="carousel-btn next" onclick="nextImage('sticker6-carousel')">&gt;</button>
+                </div>
+                <div class="carousel-indicators">
+                    <span class="indicator active" onclick="showImage('sticker6-carousel', 0)"></span>
+                    <span class="indicator" onclick="showImage('sticker6-carousel', 1)"></span>
+                </div>
+            </div>
+            <h3>Sticker Pack - Design 6</h3>
+            <p>Price: ₹99</p>
+        </div>
+
+        <!-- Regular Bookmarks - 4 separate designs -->
         <div class="product-card bookmark">
-            <img src="images/bookmarks.jpg" alt="Bookmarks">
-            <h3>Artistic Bookmarks</h3>
+            <div class="carousel-container">
+                <div class="carousel">
+                    <div class="carousel-images" id="bookmark1-carousel">
+                        <img src="images/bm_ds1.jpg" alt="Bookmark Design 1">
+                        <img src="images/bm_ds1_detail.jpg" alt="Bookmark Design 1 Detail">
+                    </div>
+                    <button class="carousel-btn prev" onclick="prevImage('bookmark1-carousel')">&lt;</button>
+                    <button class="carousel-btn next" onclick="nextImage('bookmark1-carousel')">&gt;</button>
+                </div>
+                <div class="carousel-indicators">
+                    <span class="indicator active" onclick="showImage('bookmark1-carousel', 0)"></span>
+                    <span class="indicator" onclick="showImage('bookmark1-carousel', 1)"></span>
+                </div>
+            </div>
+            <h3>Artistic Bookmark - Design 1</h3>
             <p>Price: ₹49</p>
+        </div>
+
+        <div class="product-card bookmark">
+            <div class="carousel-container">
+                <div class="carousel">
+                    <div class="carousel-images" id="bookmark2-carousel">
+                        <img src="images/bm_ds2.jpg" alt="Bookmark Design 2">
+                        <img src="images/bm_ds2_detail.jpg" alt="Bookmark Design 2 Detail">
+                    </div>
+                    <button class="carousel-btn prev" onclick="prevImage('bookmark2-carousel')">&lt;</button>
+                    <button class="carousel-btn next" onclick="nextImage('bookmark2-carousel')">&gt;</button>
+                </div>
+                <div class="carousel-indicators">
+                    <span class="indicator active" onclick="showImage('bookmark2-carousel', 0)"></span>
+                    <span class="indicator" onclick="showImage('bookmark2-carousel', 1)"></span>
+                </div>
+            </div>
+            <h3>Artistic Bookmark - Design 2</h3>
+            <p>Price: ₹49</p>
+        </div>
+
+        <div class="product-card bookmark">
+            <div class="carousel-container">
+                <div class="carousel">
+                    <div class="carousel-images" id="bookmark3-carousel">
+                        <img src="images/bm_ds3.jpg" alt="Bookmark Design 3">
+                        <img src="images/bm_ds3_detail.jpg" alt="Bookmark Design 3 Detail">
+                    </div>
+                    <button class="carousel-btn prev" onclick="prevImage('bookmark3-carousel')">&lt;</button>
+                    <button class="carousel-btn next" onclick="nextImage('bookmark3-carousel')">&gt;</button>
+                </div>
+                <div class="carousel-indicators">
+                    <span class="indicator active" onclick="showImage('bookmark3-carousel', 0)"></span>
+                    <span class="indicator" onclick="showImage('bookmark3-carousel', 1)"></span>
+                </div>
+            </div>
+            <h3>Artistic Bookmark - Design 3</h3>
+            <p>Price: ₹49</p>
+        </div>
+
+        <div class="product-card bookmark">
+            <div class="carousel-container">
+                <div class="carousel">
+                    <div class="carousel-images" id="bookmark4-carousel">
+                        <img src="images/bm_ds4.jpg" alt="Bookmark Design 4">
+                        <img src="images/bm_ds4_detail.jpg" alt="Bookmark Design 4 Detail">
+                    </div>
+                    <button class="carousel-btn prev" onclick="prevImage('bookmark4-carousel')">&lt;</button>
+                    <button class="carousel-btn next" onclick="nextImage('bookmark4-carousel')">&gt;</button>
+                </div>
+                <div class="carousel-indicators">
+                    <span class="indicator active" onclick="showImage('bookmark4-carousel', 0)"></span>
+                    <span class="indicator" onclick="showImage('bookmark4-carousel', 1)"></span>
+                </div>
+            </div>
+            <h3>Artistic Bookmark - Design 4</h3>
+            <p>Price: ₹49</p>
+        </div>
+
+        <!-- Magnetic Bookmarks - 4 separate designs -->
+        <div class="product-card magnetic">
+            <div class="carousel-container">
+                <div class="carousel">
+                    <div class="carousel-images" id="magnetic1-carousel">
+                        <img src="images/mag_bm1.jpg" alt="Magnetic Bookmark Design 1">
+                        <img src="images/mag_bm1_detail.jpg" alt="Magnetic Bookmark Design 1 Detail">
+                    </div>
+                    <button class="carousel-btn prev" onclick="prevImage('magnetic1-carousel')">&lt;</button>
+                    <button class="carousel-btn next" onclick="nextImage('magnetic1-carousel')">&gt;</button>
+                </div>
+                <div class="carousel-indicators">
+                    <span class="indicator active" onclick="showImage('magnetic1-carousel', 0)"></span>
+                    <span class="indicator" onclick="showImage('magnetic1-carousel', 1)"></span>
+                </div>
+            </div>
+            <h3>Magnetic Bookmark - Design 1</h3>
+            <p>Price: ₹79</p>
+        </div>
+
+        <div class="product-card magnetic">
+            <div class="carousel-container">
+                <div class="carousel">
+                    <div class="carousel-images" id="magnetic2-carousel">
+                        <img src="images/mag_bm2.jpg" alt="Magnetic Bookmark Design 2">
+                        <img src="images/mag_bm2_detail.jpg" alt="Magnetic Bookmark Design 2 Detail">
+                    </div>
+                    <button class="carousel-btn prev" onclick="prevImage('magnetic2-carousel')">&lt;</button>
+                    <button class="carousel-btn next" onclick="nextImage('magnetic2-carousel')">&gt;</button>
+                </div>
+                <div class="carousel-indicators">
+                    <span class="indicator active" onclick="showImage('magnetic2-carousel', 0)"></span>
+                    <span class="indicator" onclick="showImage('magnetic2-carousel', 1)"></span>
+                </div>
+            </div>
+            <h3>Magnetic Bookmark - Design 2</h3>
+            <p>Price: ₹79</p>
+        </div>
+
+        <div class="product-card magnetic">
+            <div class="carousel-container">
+                <div class="carousel">
+                    <div class="carousel-images" id="magnetic3-carousel">
+                        <img src="images/mag_bm3.jpg" alt="Magnetic Bookmark Design 3">
+                        <img src="images/mag_bm3_detail.jpg" alt="Magnetic Bookmark Design 3 Detail">
+                    </div>
+                    <button class="carousel-btn prev" onclick="prevImage('magnetic3-carousel')">&lt;</button>
+                    <button class="carousel-btn next" onclick="nextImage('magnetic3-carousel')">&gt;</button>
+                </div>
+                <div class="carousel-indicators">
+                    <span class="indicator active" onclick="showImage('magnetic3-carousel', 0)"></span>
+                    <span class="indicator" onclick="showImage('magnetic3-carousel', 1)"></span>
+                </div>
+            </div>
+            <h3>Magnetic Bookmark - Design 3</h3>
+            <p>Price: ₹79</p>
+        </div>
+
+        <div class="product-card magnetic">
+            <div class="carousel-container">
+                <div class="carousel">
+                    <div class="carousel-images" id="magnetic4-carousel">
+                        <img src="images/mag_bm4.jpg" alt="Magnetic Bookmark Design 4">
+                        <img src="images/mag_bm4_detail.jpg" alt="Magnetic Bookmark Design 4 Detail">
+                    </div>
+                    <button class="carousel-btn prev" onclick="prevImage('magnetic4-carousel')">&lt;</button>
+                    <button class="carousel-btn next" onclick="nextImage('magnetic4-carousel')">&gt;</button>
+                </div>
+                <div class="carousel-indicators">
+                    <span class="indicator active" onclick="showImage('magnetic4-carousel', 0)"></span>
+                    <span class="indicator" onclick="showImage('magnetic4-carousel', 1)"></span>
+                </div>
+            </div>
+            <h3>Magnetic Bookmark - Design 4</h3>
+            <p>Price: ₹79</p>
+        </div>
+
+        <div class="product-card magnetic">
+            <div class="carousel-container">
+                <div class="carousel">
+                    <div class="carousel-images" id="magnetic5-carousel">
+                        <img src="images/mag_bm5.jpg" alt="Magnetic Bookmark Design 5">
+                        <img src="images/mag_bm5_detail.jpg" alt="Magnetic Bookmark Design 5 Detail">
+                    </div>
+                    <button class="carousel-btn prev" onclick="prevImage('magnetic5-carousel')">&lt;</button>
+                    <button class="carousel-btn next" onclick="nextImage('magnetic5-carousel')">&gt;</button>
+                </div>
+                <div class="carousel-indicators">
+                    <span class="indicator active" onclick="showImage('magnetic5-carousel', 0)"></span>
+                    <span class="indicator" onclick="showImage('magnetic5-carousel', 1)"></span>
+                </div>
+            </div>
+            <h3>Magnetic Bookmark - Design 5</h3>
+            <p>Price: ₹79</p>
+        </div>
+
+        <!-- Postcards - 6 separate designs -->
+        <div class="product-card postcard">
+            <div class="carousel-container">
+                <div class="carousel">
+                    <div class="carousel-images" id="postcard1-carousel">
+                        <img src="images/postcard1.jpg" alt="Postcard Design 1">
+                        <img src="images/postcard1_detail.jpg" alt="Postcard Design 1 Detail">
+                    </div>
+                    <button class="carousel-btn prev" onclick="prevImage('postcard1-carousel')">&lt;</button>
+                    <button class="carousel-btn next" onclick="nextImage('postcard1-carousel')">&gt;</button>
+                </div>
+                <div class="carousel-indicators">
+                    <span class="indicator active" onclick="showImage('postcard1-carousel', 0)"></span>
+                    <span class="indicator" onclick="showImage('postcard1-carousel', 1)"></span>
+                </div>
+            </div>
+            <h3>Postcard - Design 1</h3>
+            <p>Price: ₹59</p>
+        </div>
+
+        <div class="product-card postcard">
+            <div class="carousel-container">
+                <div class="carousel">
+                    <div class="carousel-images" id="postcard2-carousel">
+                        <img src="images/postcard2.jpg" alt="Postcard Design 2">
+                        <img src="images/postcard2_detail.jpg" alt="Postcard Design 2 Detail">
+                    </div>
+                    <button class="carousel-btn prev" onclick="prevImage('postcard2-carousel')">&lt;</button>
+                    <button class="carousel-btn next" onclick="nextImage('postcard2-carousel')">&gt;</button>
+                </div>
+                <div class="carousel-indicators">
+                    <span class="indicator active" onclick="showImage('postcard2-carousel', 0)"></span>
+                    <span class="indicator" onclick="showImage('postcard2-carousel', 1)"></span>
+                </div>
+            </div>
+            <h3>Postcard - Design 2</h3>
+            <p>Price: ₹59</p>
+        </div>
+
+        <div class="product-card postcard">
+            <div class="carousel-container">
+                <div class="carousel">
+                    <div class="carousel-images" id="postcard3-carousel">
+                        <img src="images/postcard3.jpg" alt="Postcard Design 3">
+                        <img src="images/postcard3_detail.jpg" alt="Postcard Design 3 Detail">
+                    </div>
+                    <button class="carousel-btn prev" onclick="prevImage('postcard3-carousel')">&lt;</button>
+                    <button class="carousel-btn next" onclick="nextImage('postcard3-carousel')">&gt;</button>
+                </div>
+                <div class="carousel-indicators">
+                    <span class="indicator active" onclick="showImage('postcard3-carousel', 0)"></span>
+                    <span class="indicator" onclick="showImage('postcard3-carousel', 1)"></span>
+                </div>
+            </div>
+            <h3>Postcard - Design 3</h3>
+            <p>Price: ₹59</p>
+        </div>
+
+        <div class="product-card postcard">
+            <div class="carousel-container">
+                <div class="carousel">
+                    <div class="carousel-images" id="postcard4-carousel">
+                        <img src="images/postcard4.jpg" alt="Postcard Design 4">
+                        <img src="images/postcard4_detail.jpg" alt="Postcard Design 4 Detail">
+                    </div>
+                    <button class="carousel-btn prev" onclick="prevImage('postcard4-carousel')">&lt;</button>
+                    <button class="carousel-btn next" onclick="nextImage('postcard4-carousel')">&gt;</button>
+                </div>
+                <div class="carousel-indicators">
+                    <span class="indicator active" onclick="showImage('postcard4-carousel', 0)"></span>
+                    <span class="indicator" onclick="showImage('postcard4-carousel', 1)"></span>
+                </div>
+            </div>
+            <h3>Postcard - Design 4</h3>
+            <p>Price: ₹59</p>
+        </div>
+
+        <div class="product-card postcard">
+            <div class="carousel-container">
+                <div class="carousel">
+                    <div class="carousel-images" id="postcard5-carousel">
+                        <img src="images/postcard5.jpg" alt="Postcard Design 5">
+                        <img src="images/postcard5_detail.jpg" alt="Postcard Design 5 Detail">
+                    </div>
+                    <button class="carousel-btn prev" onclick="prevImage('postcard5-carousel')">&lt;</button>
+                    <button class="carousel-btn next" onclick="nextImage('postcard5-carousel')">&gt;</button>
+                </div>
+                <div class="carousel-indicators">
+                    <span class="indicator active" onclick="showImage('postcard5-carousel', 0)"></span>
+                    <span class="indicator" onclick="showImage('postcard5-carousel', 1)"></span>
+                </div>
+            </div>
+            <h3>Postcard - Design 5</h3>
+            <p>Price: ₹59</p>
+        </div>
+
+        <div class="product-card postcard">
+            <div class="carousel-container">
+                <div class="carousel">
+                    <div class="carousel-images" id="postcard6-carousel">
+                        <img src="images/postcard6.jpg" alt="Postcard Design 6">
+                        <img src="images/postcard6_detail.jpg" alt="Postcard Design 6 Detail">
+                    </div>
+                    <button class="carousel-btn prev" onclick="prevImage('postcard6-carousel')">&lt;</button>
+                    <button class="carousel-btn next" onclick="nextImage('postcard6-carousel')">&gt;</button>
+                </div>
+                <div class="carousel-indicators">
+                    <span class="indicator active" onclick="showImage('postcard6-carousel', 0)"></span>
+                    <span class="indicator" onclick="showImage('postcard6-carousel', 1)"></span>
+                </div>
+            </div>
+            <h3>Postcard - Design 6</h3>
+            <p>Price: ₹59</p>
+        </div>
+
+        <!-- Keychains - 2 designs -->
+        <div class="product-card keychain">
+            <div class="carousel-container">
+                <div class="carousel">
+                    <div class="carousel-images" id="keychain1-carousel">
+                        <img src="images/keychain1.jpg" alt="Keychain Design 1">
+                        <img src="images/keychain1_detail.jpg" alt="Keychain Design 1 Detail">
+                    </div>
+                    <button class="carousel-btn prev" onclick="prevImage('keychain1-carousel')">&lt;</button>
+                    <button class="carousel-btn next" onclick="nextImage('keychain1-carousel')">&gt;</button>
+                </div>
+                <div class="carousel-indicators">
+                    <span class="indicator active" onclick="showImage('keychain1-carousel', 0)"></span>
+                    <span class="indicator" onclick="showImage('keychain1-carousel', 1)"></span>
+                </div>
+            </div>
+            <h3>Keychain - Design 1</h3>
+            <p>Price: ₹129</p>
+        </div>
+
+        <div class="product-card keychain">
+            <div class="carousel-container">
+                <div class="carousel">
+                    <div class="carousel-images" id="keychain2-carousel">
+                        <img src="images/keychain2.jpg" alt="Keychain Design 2">
+                        <img src="images/keychain2_detail.jpg" alt="Keychain Design 2 Detail">
+                    </div>
+                    <button class="carousel-btn prev" onclick="prevImage('keychain2-carousel')">&lt;</button>
+                    <button class="carousel-btn next" onclick="nextImage('keychain2-carousel')">&gt;</button>
+                </div>
+                <div class="carousel-indicators">
+                    <span class="indicator active" onclick="showImage('keychain2-carousel', 0)"></span>
+                    <span class="indicator" onclick="showImage('keychain2-carousel', 1)"></span>
+                </div>
+            </div>
+            <h3>Keychain - Design 2</h3>
+            <p>Price: ₹129</p>
         </div>
     </main>
 
@@ -187,6 +736,89 @@
     </footer>
 
     <script>
+        let currentSlides = {
+            'calendar-carousel': 0,
+            'pin-carousel': 0,
+            'sticker1-carousel': 0,
+            'sticker2-carousel': 0,
+            'sticker3-carousel': 0,
+            'sticker4-carousel': 0,
+            'sticker5-carousel': 0,
+            'sticker6-carousel': 0,
+            'bookmark1-carousel': 0,
+            'bookmark2-carousel': 0,
+            'bookmark3-carousel': 0,
+            'bookmark4-carousel': 0,
+            'magnetic1-carousel': 0,
+            'magnetic2-carousel': 0,
+            'magnetic3-carousel': 0,
+            'magnetic4-carousel': 0,
+            'magnetic5-carousel': 0,
+            'postcard1-carousel': 0,
+            'postcard2-carousel': 0,
+            'postcard3-carousel': 0,
+            'postcard4-carousel': 0,
+            'postcard5-carousel': 0,
+            'postcard6-carousel': 0,
+            'keychain1-carousel': 0,
+            'keychain2-carousel': 0
+        };
+
+        const imageCount = {
+            'calendar-carousel': 2,
+            'pin-carousel': 2,
+            'sticker1-carousel': 2,
+            'sticker2-carousel': 2,
+            'sticker3-carousel': 2,
+            'sticker4-carousel': 2,
+            'sticker5-carousel': 2,
+            'sticker6-carousel': 2,
+            'bookmark1-carousel': 2,
+            'bookmark2-carousel': 2,
+            'bookmark3-carousel': 2,
+            'bookmark4-carousel': 2,
+            'magnetic1-carousel': 2,
+            'magnetic2-carousel': 2,
+            'magnetic3-carousel': 2,
+            'magnetic4-carousel': 2,
+            'magnetic5-carousel': 2,
+            'postcard1-carousel': 2,
+            'postcard2-carousel': 2,
+            'postcard3-carousel': 2,
+            'postcard4-carousel': 2,
+            'postcard5-carousel': 2,
+            'postcard6-carousel': 2,
+            'keychain1-carousel': 2,
+            'keychain2-carousel': 2
+        };
+
+        function updateCarousel(carouselId) {
+            const carousel = document.getElementById(carouselId);
+            const currentSlide = currentSlides[carouselId];
+            carousel.style.transform = `translateX(-${currentSlide * 100}%)`;
+            
+            // Update indicators
+            const indicators = carousel.parentElement.parentElement.querySelectorAll('.indicator');
+            indicators.forEach((indicator, index) => {
+                indicator.classList.toggle('active', index === currentSlide);
+            });
+        }
+
+        function nextImage(carouselId) {
+            currentSlides[carouselId] = (currentSlides[carouselId] + 1) % imageCount[carouselId];
+            updateCarousel(carouselId);
+        }
+
+        function prevImage(carouselId) {
+            currentSlides[carouselId] = (currentSlides[carouselId] - 1 + imageCount[carouselId]) % imageCount[carouselId];
+            updateCarousel(carouselId);
+        }
+
+        function showImage(carouselId, index) {
+            currentSlides[carouselId] = index;
+            updateCarousel(carouselId);
+        }
+
         function filterProducts(category) {
             const products = document.querySelectorAll('.product-card');
             const links = document.querySelectorAll('.filter-link');
