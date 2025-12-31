@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" preserveAspectRatio="none">
+  <defs>
+    <filter id="roughEdge">
+      <feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="5" seed="2"/>
+      <feDisplacementMap in="SourceGraphic" scale="30"/>
+    </filter>
+    <filter id="paperNoise">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4"/>
+      <feColorMatrix type="saturate" values="0"/>
+      <feComponentTransfer>
+        <feFuncR type="linear" slope="0.2" intercept="0.85"/>
+        <feFuncG type="linear" slope="0.2" intercept="0.83"/>
+        <feFuncB type="linear" slope="0.2" intercept="0.78"/>
+      </feComponentTransfer>
+    </filter>
+    <filter id="shadow">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
+      <feOffset dx="0" dy="2" result="offsetblur"/>
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="0.3"/>
+      </feComponentTransfer>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Shadow -->
+  <path d="M 0,80 Q 50,65 100,75 T 200,70 T 300,80 T 400,75 T 500,85 T 600,75 T 700,80 T 800,70 T 900,85 T 1000,75 T 1100,80 L 1200,85 L 1200,800 L 0,800 Z" 
+        fill="rgba(0,0,0,0.1)" filter="url(#shadow)"/>
+  
+  <!-- Main torn paper -->
+  <path d="M 0,70 Q 50,55 100,65 T 200,60 T 300,70 T 400,65 T 500,75 T 600,65 T 700,70 T 800,60 T 900,75 T 1000,65 T 1100,70 L 1200,75 L 1200,800 L 0,800 Z" 
+        fill="#f5f3ef" filter="url(#roughEdge)"/>
+  
+  <!-- Paper texture overlay -->
+  <path d="M 0,70 Q 50,55 100,65 T 200,60 T 300,70 T 400,65 T 500,75 T 600,65 T 700,70 T 800,60 T 900,75 T 1000,65 T 1100,70 L 1200,75 L 1200,800 L 0,800 Z" 
+        filter="url(#paperNoise)" opacity="0.6"/>
+</svg>
