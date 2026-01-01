@@ -1088,11 +1088,48 @@ nav::after {
     border: 2px solid #000000;
 }
 
-.add-to-cart-btn:hover {
+.add-to-cart-btn:hover:not(.quantity-mode) {
     background: #000000;
     color: #ffffff;
     transform: translateY(-2px) scale(1.05);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+/* Quantity mode for cart buttons */
+.add-to-cart-btn.quantity-mode {
+    width: auto;
+    border-radius: 20px;
+    padding: 3px 6px;
+    gap: 6px;
+    background: white;
+    border: 1px solid #ddd;
+}
+
+.add-to-cart-btn .qty-btn {
+    background: #000;
+    color: white;
+    border: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+}
+
+.add-to-cart-btn .qty-btn:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+.add-to-cart-btn .qty-display {
+    color: #000;
+    font-weight: 600;
+    min-width: 18px;
+    text-align: center;
+    font-size: 12px;
 }
 
 .quick-view-btn {
@@ -1291,7 +1328,7 @@ footer {
     max-width: 90px;
     opacity: 0.9;
     transition: var(--transition-smooth);
-    filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.3));
+    filter: brightness(0) invert(1);
     margin-bottom: 15px;
 }
 

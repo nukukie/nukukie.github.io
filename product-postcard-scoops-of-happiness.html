@@ -23,8 +23,10 @@
     <!-- NAVIGATION -->
     <nav class="product-nav">
         <a href="index.html" class="back-btn">← Back to Shop</a>
-
-        <button id="cartIcon" class="cart-icon" onclick="window.location.href='cart.html'"><i class="fas fa-shopping-cart"></i><span id="cartCount">0</span></button>
+        <button class="cart-icon-btn-product" onclick="window.location.href='cart.html'" title="View Cart">
+            <i class="fas fa-shopping-bag"></i>
+            <span class="cart-badge">0</span>
+        </button>
     </nav>
 
     <!-- PRODUCT DETAILS -->
@@ -72,8 +74,9 @@
                 </div>
 
                 <div class="product-actions">
-                    <button class="add-to-cart-btn" data-id="postcard-scoops" data-name="Scoops of Happiness" data-price="60" data-image="images/Postcard2_1.jpg">Add to Cart</button>
-
+                    <button class="add-to-cart-btn-page" onclick="addToCart({id: 'postcard-scoops', name: 'Scoops of Happiness', price: 60, image: 'images/Postcard2_1.jpg', url: 'product-postcard-scoops-of-happiness.html'})">
+                        <i class="fas fa-shopping-bag"></i> Add to Cart
+                    </button>
                 </div>
 
                 <div class="product-meta">
@@ -155,10 +158,9 @@
                 <h3>Connect With Us</h3>
                 <p style="color: rgba(255,255,255,0.9); margin-bottom: 10px; font-size: 0.95rem;">Follow us for updates & new designs!</p>
                 <div class="social-icons">
-                    <a href="#" class="social-icon" title="Instagram">📷</a>
-                    <a href="#" class="social-icon" title="Pinterest">📌</a>
-                    <a href="#" class="social-icon" title="WhatsApp">💬</a>
-                    <a href="#" class="social-icon" title="Email">📧</a>
+                    <a href="https://instagram.com/nukukie" target="_blank" class="social-icon" title="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
                 </div>
             </div>
         </div>

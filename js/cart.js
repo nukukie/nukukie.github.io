@@ -32,6 +32,7 @@ function addToCart(product) {
             name: product.name,
             price: product.price,
             image: product.image,
+            url: product.url || `product-${product.id}.html`, // Store URL or generate from ID
             quantity: 1
         });
     }
@@ -107,6 +108,90 @@ function updateCartDisplay() {
     if (document.querySelector('.cart-modal.active')) {
         renderCartItems();
     }
+    
+    // Update all add-to-cart buttons to show quantity controls if in cart
+    updateCartButtons();
+}
+
+// Update all add-to-cart buttons on the page
+function updateCartButtons() {
+    const cart = getCart();
+    
+    // Update product card buttons (index.html)
+    document.querySelectorAll('.add-to-cart-btn').forEach(btn => {
+        const productData = btn.getAttribute('onclick');
+        if (!productData) return;
+        
+        // Extract product ID from onclick attribute
+        const match = productData.match(/id:\s*'([^']+)'/);
+        if (!match) return;
+        
+        const productId = match[1];
+        const cartItem = cart.find(item => item.id === productId);
+        
+        if (cartItem) {
+            // Product is in cart - show quantity controls
+            btn.innerHTML = `
+                <button class="qty-btn" onclick="event.stopPropagation(); updateQuantity('${productId}', ${cartItem.quantity - 1}); return false;">
+                    <i class="fas fa-minus"></i>
+                </button>
+                <span class="qty-display">${cartItem.quantity}</span>
+                <button class="qty-btn" onclick="event.stopPropagation(); updateQuantity('${productId}', ${cartItem.quantity + 1}); return false;">
+                    <i class="fas fa-plus"></i>
+                </button>
+            `;
+            btn.classList.add('quantity-mode');
+        } else {
+            // Product not in cart - show add to cart icon
+            btn.innerHTML = '<i class="fas fa-cart-plus"></i>';
+            btn.classList.remove('quantity-mode');
+        }
+    });
+    
+    // Update product page buttons
+    document.querySelectorAll('.add-to-cart-btn-page').forEach(btn => {
+        const productData = btn.getAttribute('onclick');
+        if (!productData) return;
+        
+        const match = productData.match(/id:\s*'([^']+)'/);
+        const nameMatch = productData.match(/name:\s*'([^']+)'/);
+        if (!match) return;
+        
+        const productId = match[1];
+        const productName = nameMatch ? nameMatch[1] : 'Product';
+        const cartItem = cart.find(item => item.id === productId);
+        
+        // Find or create cart count text element
+        let countText = btn.parentElement.querySelector('.cart-count-text');
+        if (!countText) {
+            countText = document.createElement('div');
+            countText.className = 'cart-count-text';
+            btn.parentElement.appendChild(countText);
+        }
+        
+        if (cartItem) {
+            // Product is in cart - show quantity controls
+            btn.innerHTML = `
+                <button class="qty-btn-page" onclick="event.stopPropagation(); updateQuantity('${productId}', ${cartItem.quantity - 1}); return false;">
+                    −
+                </button>
+                <span class="qty-display-page">${cartItem.quantity}</span>
+                <button class="qty-btn-page" onclick="event.stopPropagation(); updateQuantity('${productId}', ${cartItem.quantity + 1}); return false;">
+                    +
+                </button>
+            `;
+            btn.classList.add('quantity-mode');
+            
+            // Update count text with product-specific count
+            countText.textContent = `${cartItem.quantity} ${productName} in cart`;
+            countText.style.display = 'block';
+        } else {
+            // Product not in cart - show add to cart button
+            btn.innerHTML = '<i class="fas fa-shopping-bag"></i> Add to Cart';
+            btn.classList.remove('quantity-mode');
+            countText.style.display = 'none';
+        }
+    });
 }
 
 // Render cart items in modal
@@ -207,19 +292,37 @@ function proceedToCheckout() {
     }
     
     // Build the order summary
-    const orderSummary = cart.map(item => 
-        `${item.name} (Qty: ${item.quantity}) - ₹${item.price * item.quantity}`
-    ).join('\n');
+    const orderItems = cart.map(item => 
+        `${item.name}\nQuantity: ${item.quantity}\nPrice: ₹${item.price}\nSubtotal: ₹${item.price * item.quantity}`
+    ).join('\n\n');
     
-    const total = getCartTotal();
-    const fullSummary = `${orderSummary}\n\nTotal: ₹${total}`;
+    // Calculate totals
+    const subtotal = getCartTotal();
+    let discount = 0;
+    let total = subtotal;
     
-    // Store order details in sessionStorage for the form
-    sessionStorage.setItem('orderSummary', fullSummary);
-    sessionStorage.setItem('orderTotal', total.toString());
+    // Apply 10% discount if subtotal is above 599
+    if (subtotal > 599) {
+        discount = Math.round(subtotal * 0.1);
+        total = subtotal - discount;
+    }
+    
+    // Build full order summary
+    let orderSummary = `${orderItems}\n\n---\nSubtotal: ₹${subtotal}`;
+    if (discount > 0) {
+        orderSummary += `\nDiscount (10%): -₹${discount}`;
+    }
+    orderSummary += `\nTotal: ₹${total}`;
+    
+    // Encode the data for URL
+    const encodedOrderItems = encodeURIComponent(orderSummary);
+    const encodedTotal = encodeURIComponent(`₹${total}`);
+    
+    // Build the Google Form URL with pre-filled data
+    const formUrl = `https://docs.google.com/forms/d/e/1FAIpQLSejCZi0WWlWtbkBu4tl3fF0PrGLsS-AgurIZOh0xPUuL4EOkw/viewform?usp=pp_url&entry.1150537604=${encodedOrderItems}&entry.575583676=${encodedTotal}`;
     
     // Redirect to Google Form
-    window.location.href = 'https://docs.google.com/forms/d/e/1FAIpQLSejCZi0WWlWtbkBu4tl3fF0PrGLsS-AgurIZOh0xPUuL4EOkw/viewform';
+    window.location.href = formUrl;
 }
 
 // Initialize cart display on page load
