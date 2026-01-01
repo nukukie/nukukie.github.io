@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nukukie Crafts - Handmade Products</title>
     
+    <!-- Preload critical resources -->
+    <link rel="preload" as="image" href="images/nukukie1.jpg" fetchpriority="high">
+    
     <!-- External CSS -->
     <link rel="stylesheet" href="css/styles.css">
 </head>
@@ -15,7 +18,7 @@
     <section class="hero-banner">
         <div class="banner-container">
             <div class="logo-section">
-                <img src="images/nukukie1.jpg" alt="Nukukie Logo" class="hero-logo">
+                <img src="images/nukukie1.jpg" alt="Nukukie Logo" class="hero-logo" loading="eager" decoding="async" fetchpriority="high">
                 <span class="hero-badge"><span class="badge-star">★</span> Where tiny stories live <span class="badge-star">★</span></span>
             </div>
         </div>
@@ -32,27 +35,6 @@
             <path d="M50 20 L58 45 L85 45 L63 60 L70 85 L50 70 L30 85 L37 60 L15 45 L42 45 Z" fill="none" stroke="#000" stroke-width="6" stroke-linejoin="round" stroke-linecap="round" opacity="0.2"/>
         </svg>
         <svg class="star-stamp star-stamp-5" viewBox="0 0 100 100">
-            <path d="M50 20 L58 45 L85 45 L63 60 L70 85 L50 70 L30 85 L37 60 L15 45 L42 45 Z" fill="none" stroke="#000" stroke-width="6" stroke-linejoin="round" stroke-linecap="round" opacity="0.2"/>
-        </svg>
-        <svg class="star-stamp star-stamp-6" viewBox="0 0 100 100">
-            <path d="M50 20 L58 45 L85 45 L63 60 L70 85 L50 70 L30 85 L37 60 L15 45 L42 45 Z" fill="none" stroke="#000" stroke-width="6" stroke-linejoin="round" stroke-linecap="round" opacity="0.2"/>
-        </svg>
-        <svg class="star-stamp star-stamp-7" viewBox="0 0 100 100">
-            <path d="M50 20 L58 45 L85 45 L63 60 L70 85 L50 70 L30 85 L37 60 L15 45 L42 45 Z" fill="none" stroke="#000" stroke-width="6" stroke-linejoin="round" stroke-linecap="round" opacity="0.2"/>
-        </svg>
-        <svg class="star-stamp star-stamp-8" viewBox="0 0 100 100">
-            <path d="M50 20 L58 45 L85 45 L63 60 L70 85 L50 70 L30 85 L37 60 L15 45 L42 45 Z" fill="none" stroke="#000" stroke-width="6" stroke-linejoin="round" stroke-linecap="round" opacity="0.2"/>
-        </svg>
-        <svg class="star-stamp star-stamp-9" viewBox="0 0 100 100">
-            <path d="M50 20 L58 45 L85 45 L63 60 L70 85 L50 70 L30 85 L37 60 L15 45 L42 45 Z" fill="none" stroke="#000" stroke-width="6" stroke-linejoin="round" stroke-linecap="round" opacity="0.2"/>
-        </svg>
-        <svg class="star-stamp star-stamp-10" viewBox="0 0 100 100">
-            <path d="M50 20 L58 45 L85 45 L63 60 L70 85 L50 70 L30 85 L37 60 L15 45 L42 45 Z" fill="none" stroke="#000" stroke-width="6" stroke-linejoin="round" stroke-linecap="round" opacity="0.2"/>
-        </svg>
-        <svg class="star-stamp star-stamp-11" viewBox="0 0 100 100">
-            <path d="M50 20 L58 45 L85 45 L63 60 L70 85 L50 70 L30 85 L37 60 L15 45 L42 45 Z" fill="none" stroke="#000" stroke-width="6" stroke-linejoin="round" stroke-linecap="round" opacity="0.2"/>
-        </svg>
-        <svg class="star-stamp star-stamp-12" viewBox="0 0 100 100">
             <path d="M50 20 L58 45 L85 45 L63 60 L70 85 L50 70 L30 85 L37 60 L15 45 L42 45 Z" fill="none" stroke="#000" stroke-width="6" stroke-linejoin="round" stroke-linecap="round" opacity="0.2"/>
         </svg>
     </section>
@@ -87,10 +69,10 @@
         <div class="product-card calendar">
             <div class="carousel-container">
                 <div class="carousel-images">
-                    <img src="images/Calendar1_1.jpg" alt="Calendar">
-                    <img src="images/Calendar1_2.jpg" alt="Calendar">
-                    <img src="images/Calendar1_3.jpg" alt="Calendar">
-                    <img src="images/Calendar1_4.jpg" alt="Calendar">
+                    <img src="images/Calendar1_1.jpg" alt="Calendar" loading="lazy" decoding="async">
+                    <img src="images/Calendar1_2.jpg" alt="Calendar" loading="lazy" decoding="async">
+                    <img src="images/Calendar1_3.jpg" alt="Calendar" loading="lazy" decoding="async">
+                    <img src="images/Calendar1_4.jpg" alt="Calendar" loading="lazy" decoding="async">
                 </div>
                 <button class="carousel-btn prev" onclick="moveCarousel(this, -1)">&#10094;</button>
                 <button class="carousel-btn next" onclick="moveCarousel(this, 1)">&#10095;</button>
@@ -111,9 +93,9 @@
         <div class="product-card pin">
             <div class="carousel-container">
                 <div class="carousel-images">
-                    <img src="images/Pin1_1.jpg" alt="Pins">
-                    <img src="images/Pin1_2.jpg" alt="Pins">
-                    <img src="images/Pin1_3.jpg" alt="Pins">
+                    <img src="images/pin1_1.jpg" alt="Pins" loading="lazy" decoding="async">
+                    <img src="images/pin1_2.jpg" alt="Pins" loading="lazy" decoding="async">
+                    <img src="images/pin1_3.jpg" alt="Pins" loading="lazy" decoding="async">
                 </div>
                 <button class="carousel-btn prev" onclick="moveCarousel(this, -1)">&#10094;</button>
                 <button class="carousel-btn next" onclick="moveCarousel(this, 1)">&#10095;</button>
@@ -132,8 +114,8 @@
         <div class="product-card sticker">
             <div class="carousel-container">
                 <div class="carousel-images">
-                    <img src="images/Sticker1_1.jpg" alt="Sticker 1">
-                    <img src="images/Sticker1_2.jpg" alt="Sticker 1">
+                    <img src="images/sticker1_1.jpg" alt="Sticker 1" loading="lazy" decoding="async">
+                    <img src="images/sticker1_2.jpg" alt="Sticker 1" loading="lazy" decoding="async">
                 </div>
                 <button class="carousel-btn prev" onclick="moveCarousel(this, -1)">&#10094;</button>
                 <button class="carousel-btn next" onclick="moveCarousel(this, 1)">&#10095;</button>
@@ -150,8 +132,8 @@
         <div class="product-card sticker">
             <div class="carousel-container">
                 <div class="carousel-images">
-                    <img src="images/Sticker2_1.jpg" alt="Sticker 2">
-                    <img src="images/Sticker2_2.jpg" alt="Sticker 2">
+                    <img src="images/sticker2_1.jpg" alt="Sticker 2" loading="lazy" decoding="async">
+                    <img src="images/sticker2_2.jpg" alt="Sticker 2" loading="lazy" decoding="async">
                 </div>
                 <button class="carousel-btn prev" onclick="moveCarousel(this, -1)">&#10094;</button>
                 <button class="carousel-btn next" onclick="moveCarousel(this, 1)">&#10095;</button>
@@ -168,8 +150,8 @@
         <div class="product-card sticker">
             <div class="carousel-container">
                 <div class="carousel-images">
-                    <img src="images/Sticker3_1.jpg" alt="Sticker 3">
-                    <img src="images/Sticker3_2.jpg" alt="Sticker 3">
+                    <img src="images/sticker3_1.jpg" alt="Sticker 3" loading="lazy" decoding="async">
+                    <img src="images/sticker3_2.jpg" alt="Sticker 3" loading="lazy" decoding="async">
                 </div>
                 <button class="carousel-btn prev" onclick="moveCarousel(this, -1)">&#10094;</button>
                 <button class="carousel-btn next" onclick="moveCarousel(this, 1)">&#10095;</button>
@@ -186,8 +168,8 @@
         <div class="product-card sticker">
             <div class="carousel-container">
                 <div class="carousel-images">
-                    <img src="images/Sticker4_1.jpg" alt="Sticker 4">
-                    <img src="images/Sticker4_2.jpg" alt="Sticker 4">
+                    <img src="images/sticker4_1.jpg" alt="Sticker 4" loading="lazy" decoding="async">
+                    <img src="images/sticker4_2.jpg" alt="Sticker 4" loading="lazy" decoding="async">
                 </div>
                 <button class="carousel-btn prev" onclick="moveCarousel(this, -1)">&#10094;</button>
                 <button class="carousel-btn next" onclick="moveCarousel(this, 1)">&#10095;</button>
@@ -204,8 +186,8 @@
         <div class="product-card sticker">
             <div class="carousel-container">
                 <div class="carousel-images">
-                    <img src="images/Sticker5_1.jpg" alt="Sticker 5">
-                    <img src="images/Sticker5_2.jpg" alt="Sticker 5">
+                    <img src="images/sticker5_1.jpg" alt="Sticker 5" loading="lazy" decoding="async">
+                    <img src="images/sticker5_2.jpg" alt="Sticker 5" loading="lazy" decoding="async">
                 </div>
                 <button class="carousel-btn prev" onclick="moveCarousel(this, -1)">&#10094;</button>
                 <button class="carousel-btn next" onclick="moveCarousel(this, 1)">&#10095;</button>
@@ -222,8 +204,8 @@
         <div class="product-card sticker">
             <div class="carousel-container">
                 <div class="carousel-images">
-                    <img src="images/Sticker6_1.jpg" alt="Sticker 6">
-                    <img src="images/Sticker6_2.jpg" alt="Sticker 6">
+                    <img src="images/sticker6_1.jpg" alt="Sticker 6" loading="lazy" decoding="async">
+                    <img src="images/sticker6_2.jpg" alt="Sticker 6" loading="lazy" decoding="async">
                 </div>
                 <button class="carousel-btn prev" onclick="moveCarousel(this, -1)">&#10094;</button>
                 <button class="carousel-btn next" onclick="moveCarousel(this, 1)">&#10095;</button>
@@ -241,9 +223,9 @@
         <div class="product-card bookmark">
             <div class="carousel-container">
                 <div class="carousel-images">
-                    <img src="images/bm_ds1_1.jpg" alt="Bookmark 1">
-                    <img src="images/bm_ds1_2.jpg" alt="Bookmark 1">
-                    <img src="images/bm_ds1_3.jpg" alt="Bookmark 1">
+                    <img src="images/bm_ds1_1.jpg" alt="Bookmark 1" loading="lazy" decoding="async">
+                    <img src="images/bm_ds1_2.jpg" alt="Bookmark 1" loading="lazy" decoding="async">
+                    <img src="images/bm_ds1_3.jpg" alt="Bookmark 1" loading="lazy" decoding="async">
                 </div>
                 <button class="carousel-btn prev" onclick="moveCarousel(this, -1)">&#10094;</button>
                 <button class="carousel-btn next" onclick="moveCarousel(this, 1)">&#10095;</button>
@@ -261,9 +243,9 @@
         <div class="product-card bookmark">
             <div class="carousel-container">
                 <div class="carousel-images">
-                    <img src="images/bm_ds2_1.jpg" alt="Bookmark 2">
-                    <img src="images/bm_ds2_2.jpg" alt="Bookmark 2">
-                    <img src="images/bm_ds2_3.jpg" alt="Bookmark 2">
+                    <img src="images/bm_ds2_1.jpg" alt="Bookmark 2" loading="lazy" decoding="async">
+                    <img src="images/bm_ds2_2.jpg" alt="Bookmark 2" loading="lazy" decoding="async">
+                    <img src="images/bm_ds2_3.jpg" alt="Bookmark 2" loading="lazy" decoding="async">
                 </div>
                 <button class="carousel-btn prev" onclick="moveCarousel(this, -1)">&#10094;</button>
                 <button class="carousel-btn next" onclick="moveCarousel(this, 1)">&#10095;</button>
@@ -281,9 +263,9 @@
         <div class="product-card bookmark">
             <div class="carousel-container">
                 <div class="carousel-images">
-                    <img src="images/bm_ds3_1.jpg" alt="Bookmark 3">
-                    <img src="images/bm_ds3_2.jpg" alt="Bookmark 3">
-                    <img src="images/bm_ds3_3.jpg" alt="Bookmark 3">
+                    <img src="images/bm_ds3_1.jpg" alt="Bookmark 3" loading="lazy" decoding="async">
+                    <img src="images/bm_ds3_2.jpg" alt="Bookmark 3" loading="lazy" decoding="async">
+                    <img src="images/bm_ds3_3.jpg" alt="Bookmark 3" loading="lazy" decoding="async">
                 </div>
                 <button class="carousel-btn prev" onclick="moveCarousel(this, -1)">&#10094;</button>
                 <button class="carousel-btn next" onclick="moveCarousel(this, 1)">&#10095;</button>
@@ -301,9 +283,9 @@
         <div class="product-card bookmark">
             <div class="carousel-container">
                 <div class="carousel-images">
-                    <img src="images/bm_ds4_1.jpg" alt="Bookmark 4">
-                    <img src="images/bm_ds4_2.jpg" alt="Bookmark 4">
-                    <img src="images/bm_ds4_3.jpg" alt="Bookmark 4">
+                    <img src="images/bm_ds4_1.jpg" alt="Bookmark 4" loading="lazy" decoding="async">
+                    <img src="images/bm_ds4_2.jpg" alt="Bookmark 4" loading="lazy" decoding="async">
+                    <img src="images/bm_ds4_3.jpg" alt="Bookmark 4" loading="lazy" decoding="async">
                 </div>
                 <button class="carousel-btn prev" onclick="moveCarousel(this, -1)">&#10094;</button>
                 <button class="carousel-btn next" onclick="moveCarousel(this, 1)">&#10095;</button>
@@ -322,9 +304,9 @@
         <div class="product-card magnetic-bookmark">
             <div class="carousel-container">
                 <div class="carousel-images">
-                    <img src="images/mg_bm1_1.jpg" alt="Magnetic Bookmark 1">
-                    <img src="images/mg_bm1_2.jpg" alt="Magnetic Bookmark 1">
-                    <img src="images/mg_bm1_3.jpg" alt="Magnetic Bookmark 1">
+                    <img src="images/mg_bm1_1.jpg" alt="Magnetic Bookmark 1" loading="lazy" decoding="async">
+                    <img src="images/mg_bm1_2.jpg" alt="Magnetic Bookmark 1" loading="lazy" decoding="async">
+                    <img src="images/mg_bm1_3.jpg" alt="Magnetic Bookmark 1" loading="lazy" decoding="async">
                 </div>
                 <button class="carousel-btn prev" onclick="moveCarousel(this, -1)">&#10094;</button>
                 <button class="carousel-btn next" onclick="moveCarousel(this, 1)">&#10095;</button>
@@ -342,9 +324,9 @@
         <div class="product-card magnetic-bookmark">
             <div class="carousel-container">
                 <div class="carousel-images">
-                    <img src="images/mg_bm2_1.jpg" alt="Magnetic Bookmark 2">
-                    <img src="images/mg_bm2_2.jpg" alt="Magnetic Bookmark 2">
-                    <img src="images/mg_bm2_3.jpg" alt="Magnetic Bookmark 2">
+                    <img src="images/mg_bm2_1.jpg" alt="Magnetic Bookmark 2" loading="lazy" decoding="async">
+                    <img src="images/mg_bm2_2.jpg" alt="Magnetic Bookmark 2" loading="lazy" decoding="async">
+                    <img src="images/mg_bm2_3.jpg" alt="Magnetic Bookmark 2" loading="lazy" decoding="async">
                 </div>
                 <button class="carousel-btn prev" onclick="moveCarousel(this, -1)">&#10094;</button>
                 <button class="carousel-btn next" onclick="moveCarousel(this, 1)">&#10095;</button>
@@ -362,9 +344,9 @@
         <div class="product-card magnetic-bookmark">
             <div class="carousel-container">
                 <div class="carousel-images">
-                    <img src="images/mg_bm3_1.jpg" alt="Magnetic Bookmark 3">
-                    <img src="images/mg_bm3_2.jpg" alt="Magnetic Bookmark 3">
-                    <img src="images/mg_bm3_3.jpg" alt="Magnetic Bookmark 3">
+                    <img src="images/mg_bm3_1.jpg" alt="Magnetic Bookmark 3" loading="lazy" decoding="async">
+                    <img src="images/mg_bm3_2.jpg" alt="Magnetic Bookmark 3" loading="lazy" decoding="async">
+                    <img src="images/mg_bm3_3.jpg" alt="Magnetic Bookmark 3" loading="lazy" decoding="async">
                 </div>
                 <button class="carousel-btn prev" onclick="moveCarousel(this, -1)">&#10094;</button>
                 <button class="carousel-btn next" onclick="moveCarousel(this, 1)">&#10095;</button>
@@ -382,9 +364,9 @@
         <div class="product-card magnetic-bookmark">
             <div class="carousel-container">
                 <div class="carousel-images">
-                    <img src="images/mg_bm4_1.jpg" alt="Magnetic Bookmark 4">
-                    <img src="images/mg_bm4_2.jpg" alt="Magnetic Bookmark 4">
-                    <img src="images/mg_bm4_3.jpg" alt="Magnetic Bookmark 4">
+                    <img src="images/mg_bm4_1.jpg" alt="Magnetic Bookmark 4" loading="lazy" decoding="async">
+                    <img src="images/mg_bm4_2.jpg" alt="Magnetic Bookmark 4" loading="lazy" decoding="async">
+                    <img src="images/mg_bm4_3.jpg" alt="Magnetic Bookmark 4" loading="lazy" decoding="async">
                 </div>
                 <button class="carousel-btn prev" onclick="moveCarousel(this, -1)">&#10094;</button>
                 <button class="carousel-btn next" onclick="moveCarousel(this, 1)">&#10095;</button>
@@ -402,9 +384,9 @@
         <div class="product-card magnetic-bookmark">
             <div class="carousel-container">
                 <div class="carousel-images">
-                    <img src="images/mg_bm5_1.jpg" alt="Magnetic Bookmark 5">
-                    <img src="images/mg_bm5_2.jpg" alt="Magnetic Bookmark 5">
-                    <img src="images/mg_bm5_3.jpg" alt="Magnetic Bookmark 5">
+                    <img src="images/mg_bm5_1.jpg" alt="Magnetic Bookmark 5" loading="lazy" decoding="async">
+                    <img src="images/mg_bm5_2.jpg" alt="Magnetic Bookmark 5" loading="lazy" decoding="async">
+                    <img src="images/mg_bm5_3.jpg" alt="Magnetic Bookmark 5" loading="lazy" decoding="async">
                 </div>
                 <button class="carousel-btn prev" onclick="moveCarousel(this, -1)">&#10094;</button>
                 <button class="carousel-btn next" onclick="moveCarousel(this, 1)">&#10095;</button>
@@ -423,9 +405,9 @@
         <div class="product-card keychain">
             <div class="carousel-container">
                 <div class="carousel-images">
-                    <img src="images/Keychain1_1.jpg" alt="Keychain">
-                    <img src="images/Keychain1_2.jpg" alt="Keychain">
-                    <img src="images/Keychain1_3.jpg" alt="Keychain">
+                    <img src="images/Keychain1_1.jpg" alt="Keychain" loading="lazy" decoding="async">
+                    <img src="images/Keychain1_2.jpg" alt="Keychain" loading="lazy" decoding="async">
+                    <img src="images/Keychain1_3.jpg" alt="Keychain" loading="lazy" decoding="async">
                 </div>
                 <button class="carousel-btn prev" onclick="moveCarousel(this, -1)">&#10094;</button>
                 <button class="carousel-btn next" onclick="moveCarousel(this, 1)">&#10095;</button>
@@ -443,9 +425,9 @@
         <div class="product-card keychain">
             <div class="carousel-container">
                 <div class="carousel-images">
-                    <img src="images/Keychain2_1.jpg" alt="Keychain 2">
-                    <img src="images/Keychain2_2.jpg" alt="Keychain 2">
-                    <img src="images/Keychain2_3.jpg" alt="Keychain 2">
+                    <img src="images/Keychain2_1.jpg" alt="Keychain 2" loading="lazy" decoding="async">
+                    <img src="images/Keychain2_2.jpg" alt="Keychain 2" loading="lazy" decoding="async">
+                    <img src="images/Keychain2_3.jpg" alt="Keychain 2" loading="lazy" decoding="async">
                 </div>
                 <button class="carousel-btn prev" onclick="moveCarousel(this, -1)">&#10094;</button>
                 <button class="carousel-btn next" onclick="moveCarousel(this, 1)">&#10095;</button>
@@ -464,9 +446,9 @@
         <div class="product-card postcard">
             <div class="carousel-container">
                 <div class="carousel-images">
-                    <img src="images/postcard1_1.jpg" alt="Postcard 1">
-                    <img src="images/postcard1_2.jpg" alt="Postcard 1">
-                    <img src="images/postcard1_3.jpg" alt="Postcard 1">
+                    <img src="images/postcard1_1.jpg" alt="Postcard 1" loading="lazy" decoding="async">
+                    <img src="images/postcard1_2.jpg" alt="Postcard 1" loading="lazy" decoding="async">
+                    <img src="images/postcard1_3.jpg" alt="Postcard 1" loading="lazy" decoding="async">
                 </div>
                 <button class="carousel-btn prev" onclick="moveCarousel(this, -1)">&#10094;</button>
                 <button class="carousel-btn next" onclick="moveCarousel(this, 1)">&#10095;</button>
@@ -484,9 +466,9 @@
         <div class="product-card postcard">
             <div class="carousel-container">
                 <div class="carousel-images">
-                    <img src="images/postcard2_1.jpg" alt="Postcard 2">
-                    <img src="images/postcard2_2.jpg" alt="Postcard 2">
-                    <img src="images/postcard2_3.jpg" alt="Postcard 2">
+                    <img src="images/postcard2_1.jpg" alt="Postcard 2" loading="lazy" decoding="async">
+                    <img src="images/postcard2_2.jpg" alt="Postcard 2" loading="lazy" decoding="async">
+                    <img src="images/postcard2_3.jpg" alt="Postcard 2" loading="lazy" decoding="async">
                 </div>
                 <button class="carousel-btn prev" onclick="moveCarousel(this, -1)">&#10094;</button>
                 <button class="carousel-btn next" onclick="moveCarousel(this, 1)">&#10095;</button>
@@ -504,9 +486,9 @@
         <div class="product-card postcard">
             <div class="carousel-container">
                 <div class="carousel-images">
-                    <img src="images/postcard3_1.jpg" alt="Postcard 3">
-                    <img src="images/postcard3_2.jpg" alt="Postcard 3">
-                    <img src="images/postcard3_3.jpg" alt="Postcard 3">
+                    <img src="images/postcard3_1.jpg" alt="Postcard 3" loading="lazy" decoding="async">
+                    <img src="images/postcard3_2.jpg" alt="Postcard 3" loading="lazy" decoding="async">
+                    <img src="images/postcard3_3.jpg" alt="Postcard 3" loading="lazy" decoding="async">
                 </div>
                 <button class="carousel-btn prev" onclick="moveCarousel(this, -1)">&#10094;</button>
                 <button class="carousel-btn next" onclick="moveCarousel(this, 1)">&#10095;</button>
@@ -524,9 +506,9 @@
         <div class="product-card postcard">
             <div class="carousel-container">
                 <div class="carousel-images">
-                    <img src="images/postcard4_1.jpg" alt="Postcard 4">
-                    <img src="images/postcard4_2.jpg" alt="Postcard 4">
-                    <img src="images/postcard4_3.jpg" alt="Postcard 4">
+                    <img src="images/postcard4_1.jpg" alt="Postcard 4" loading="lazy" decoding="async">
+                    <img src="images/postcard4_2.jpg" alt="Postcard 4" loading="lazy" decoding="async">
+                    <img src="images/postcard4_3.jpg" alt="Postcard 4" loading="lazy" decoding="async">
                 </div>
                 <button class="carousel-btn prev" onclick="moveCarousel(this, -1)">&#10094;</button>
                 <button class="carousel-btn next" onclick="moveCarousel(this, 1)">&#10095;</button>
@@ -544,9 +526,9 @@
         <div class="product-card postcard">
             <div class="carousel-container">
                 <div class="carousel-images">
-                    <img src="images/postcard5_1.jpg" alt="Postcard 5">
-                    <img src="images/postcard5_2.jpg" alt="Postcard 5">
-                    <img src="images/postcard5_3.jpg" alt="Postcard 5">
+                    <img src="images/postcard5_1.jpg" alt="Postcard 5" loading="lazy" decoding="async">
+                    <img src="images/postcard5_2.jpg" alt="Postcard 5" loading="lazy" decoding="async">
+                    <img src="images/postcard5_3.jpg" alt="Postcard 5" loading="lazy" decoding="async">
                 </div>
                 <button class="carousel-btn prev" onclick="moveCarousel(this, -1)">&#10094;</button>
                 <button class="carousel-btn next" onclick="moveCarousel(this, 1)">&#10095;</button>
@@ -564,9 +546,9 @@
         <div class="product-card postcard">
             <div class="carousel-container">
                 <div class="carousel-images">
-                    <img src="images/postcard6_1.jpg" alt="Postcard 6">
-                    <img src="images/postcard6_2.jpg" alt="Postcard 6">
-                    <img src="images/postcard6_3.jpg" alt="Postcard 6">
+                    <img src="images/postcard6_1.jpg" alt="Postcard 6" loading="lazy" decoding="async">
+                    <img src="images/postcard6_2.jpg" alt="Postcard 6" loading="lazy" decoding="async">
+                    <img src="images/postcard6_3.jpg" alt="Postcard 6" loading="lazy" decoding="async">
                 </div>
                 <button class="carousel-btn prev" onclick="moveCarousel(this, -1)">&#10094;</button>
                 <button class="carousel-btn next" onclick="moveCarousel(this, 1)">&#10095;</button>
@@ -639,7 +621,7 @@
             <div class="footer-about">
                 <h3>Nukukie Crafts 🌸</h3>
                 <p>Creating handmade magic since the beginning! We pour our hearts into every sticker, pin, bookmark, calendar, and keychain we make. Your support and love inspire us every day! 💕</p>
-                <img src="images/signature.png" alt="NK Signature" class="signature">
+                <img src="images/signature.png" alt="NK Signature" class="signature" loading="lazy" decoding="async">
             </div>
             
             <div class="footer-links">
