@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bloom and Read - Bookmark | Nukukie</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- External CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/product-page.css">
+</head>
+<body>
+    <!-- PROMOTIONAL BANNER -->
+    <div class="promo-banner">
+        <div class="promo-text">
+            <span>✦ Get 10% off on orders above ₹599/- ✦</span>
+            <span>✦ Get 10% off on orders above ₹599/- ✦</span>
+            <span>✦ Get 10% off on orders above ₹599/- ✦</span>
+        </div>
+    </div>
+
+    <!-- NAVIGATION -->
+    <nav class="product-nav">
+        <a href="index.html" class="back-btn">← Back to Shop</a>
+        <button id="cart-icon" class="cart-icon" onclick="window.location.href='cart.html'"><i class="fas fa-shopping-cart"></i><span id="cart-count">0</span></button>
+    </nav>
+
+    <!-- PRODUCT DETAILS -->
+    <main class="product-page">
+        <div class="product-container">
+            <!-- Product Images -->
+            <div class="product-images-section">
+                <div class="main-image-container">
+                    <img id="mainImage" src="images/bm_ds3_1.jpg" alt="Bloom and Read Bookmark">
+                </div>
+                <div class="thumbnail-container">
+                    <img src="images/bm_ds3_1.jpg" alt="Bookmark Image 1" class="thumbnail active" onclick="changeImage(this, 'images/bm_ds3_1.jpg')">
+                    <img src="images/bm_ds3_2.jpg" alt="Bookmark Image 2" class="thumbnail" onclick="changeImage(this, 'images/bm_ds3_2.jpg')">
+                    <img src="images/bm_ds3_3.jpg" alt="Bookmark Image 3" class="thumbnail" onclick="changeImage(this, 'images/bm_ds3_3.jpg')">
+                </div>
+            </div>
+
+            <!-- Product Info -->
+            <div class="product-info-section">
+                <div class="product-breadcrumb">
+                    <a href="index.html">Home</a> / <a href="index.html#products">Products</a> / <span>Bookmark</span>
+                </div>
+                
+                <h1 class="product-title">Bloom and Read</h1>
+                
+                <span class="product-tag-page">Bookmark</span>
+                
+                <div class="product-price-section">
+                    <span class="price">₹50</span>
+                </div>
+                
+                <div class="product-description">
+                    <h3>Description</h3>
+                    <p>Bright heart balloons that celebrates life and creativity.</p>
+                    <p>This joyful bookmark features vibrant heart balloons floating upward, symbolizing the uplifting power of reading. Perfect for adding a burst of color and positivity to your books, celebrating every page turn with creativity and love.</p>
+                    
+                    <h4>Features:</h4>
+                    <ul>
+                        <li>Premium texture paper for durability</li>
+                        <li>Glossy lamination for water resistance</li>
+                        <li>Vibrant, fade-resistant printing</li>
+                        <li>Standard bookmark size for easy use</li>
+                        <li>Double-sided design</li>
+                        <li>Perfect for gifting to book lovers</li>
+                    </ul>
+                </div>
+
+                <div class="product-actions">
+                    <button class="add-to-cart-btn" data-id="bookmark-bloom" data-name="Bloom and Read" data-price="50" data-image="images/bm_ds3_1.jpg">Add to Cart</button>
+                </div>
+
+                <div class="product-meta">
+                    <p><strong>Category:</strong> Bookmark</p>
+                    <p><strong>Availability:</strong> In Stock</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Additional Information -->
+        <div class="product-additional-info">
+            <div class="info-tabs">
+                <button class="tab-btn active" onclick="showTab('details', event)">Additional Details</button>
+                <button class="tab-btn" onclick="showTab('shipping', event)">Shipping Info</button>
+                <button class="tab-btn" onclick="showTab('care', event)">Care Instructions</button>
+            </div>
+            
+            <div class="tab-content" id="details-tab">
+                <h3>Product Details</h3>
+                <ul>
+                    <li><strong>Size:</strong> Standard bookmark size (2" x 6")</li>
+                    <li><strong>Material:</strong> Premium texture paper</li>
+                    <li><strong>Print:</strong> High-quality double-sided print</li>
+                    <li><strong>Design:</strong> Heart balloon celebration illustration</li>
+                </ul>
+            </div>
+            
+            <div class="tab-content" id="shipping-tab" style="display:none;">
+                <h3>Shipping Information</h3>
+                <ul>
+                    <li>Standard delivery: 4-7 business days</li>
+                    <li>Carefully packaged to prevent damage</li>
+                    <li>Track your order with provided tracking number</li>
+                    <li>Shipped in protective packaging</li>
+                </ul>
+            </div>
+            
+            <div class="tab-content" id="care-tab" style="display:none;">
+                <h3>Care Instructions</h3>
+                <ul>
+                    <li>Wipe clean with soft, dry cloth</li>
+                    <li>Keep away from direct sunlight to prevent fading</li>
+                    <li>Avoid bending or folding</li>
+                    <li>Handle with clean, dry hands</li>
+                </ul>
+            </div>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-about">
+                <h3>Nukukie 🌸</h3>
+                <p>Creating handmade magic since the beginning! We pour our hearts into every sticker, pin, bookmark, calendar, and keychain we make. Your support and love inspire us every day! 💕</p>
+                <img src="images/signature.png" alt="NK Signature" class="signature" loading="lazy" decoding="async">
+            </div>
+            
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html#productGrid">Shop All Products</a></li>
+                    <li><a href="index.html#about-section">About Us</a></li>
+                    <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSejCZi0WWlWtbkBu4tl3fF0PrGLsS-AgurIZOh0xPUuL4EOkw/viewform">Place an Order</a></li>
+                    <li><a href="index.html#footer">Contact Info</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-contact">
+                <h3>Get in Touch</h3>
+                <ul>
+                    <li>📧 nukukiecrafts@gmail.com</li>
+                    <li>📱 DM for Custom Orders</li>
+                    <li>🎁 Bulk Orders Welcome</li>
+                    <li>💌 Personalization Available</li>
+                </ul>
+            </div>
+            
+            <div class="footer-social">
+                <h3>Connect With Us</h3>
+                <p style="color: rgba(255,255,255,0.9); margin-bottom: 10px; font-size: 0.95rem;">Follow us for updates & new designs!</p>
+                <div class="social-icons">
+                    <a href="#" class="social-icon" title="Instagram">📷</a>
+                    <a href="#" class="social-icon" title="Pinterest">📌</a>
+                    <a href="#" class="social-icon" title="WhatsApp">💬</a>
+                    <a href="#" class="social-icon" title="Email">📧</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2025 Nukukie. Handmade with <span class="hearts">♥</span> for craft lovers everywhere!</p>
+            <p>All designs are 100% original and handmade with care ✨</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        const promoText = document.querySelector('.promo-text');
+        if (promoText) {
+            promoText.style.animation = 'scroll 25s linear infinite';
+        }
+
+        function changeImage(thumbnail, imageSrc) {
+            document.getElementById('mainImage').src = imageSrc;
+            const thumbnails = document.querySelectorAll('.thumbnail');
+            thumbnails.forEach(thumb => thumb.classList.remove('active'));
+            thumbnail.classList.add('active');
+        }
+
+        function showTab(tabName, event) {
+            const tabContents = document.querySelectorAll('.tab-content');
+            tabContents.forEach(content => content.style.display = 'none');
+            const tabBtns = document.querySelectorAll('.tab-btn');
+            tabBtns.forEach(btn => btn.classList.remove('active'));
+            document.getElementById(tabName + '-tab').style.display = 'block';
+            event.currentTarget.classList.add('active');
+        }
+    </script>
+    <script src="js/cart.js"></script>
+</body>
+</html>

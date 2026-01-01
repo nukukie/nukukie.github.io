@@ -9,14 +9,25 @@
 document.addEventListener('DOMContentLoaded', function() {
     addQuickViewButtons();
     animateProductsOnScroll();
+    
+    // Add dropdown filter listener
+    const categorySelect = document.getElementById('category-select');
+    if (categorySelect) {
+        categorySelect.addEventListener('change', function() {
+            filterProducts(this.value);
+        });
+    }
 });
 
 // ============================================
 // CATEGORY FILTER WITH ANIMATION
 // ============================================
-function filterProducts(category) {
+window.filterProducts = function(category) {
+    console.log('Filtering by category:', category);
     const products = document.querySelectorAll('.product-card');
     const links = document.querySelectorAll('.filter-link');
+    
+    console.log('Found products:', products.length);
     
     // Update active tab
     links.forEach(link => {
@@ -25,13 +36,23 @@ function filterProducts(category) {
             link.classList.add('active');
         }
     });
+    
+    // Also update mobile dropdown
+    const mobileDropdown = document.querySelector('.mobile-filter-dropdown');
+    if (mobileDropdown) {
+        mobileDropdown.value = category;
+    }
 
     // Filter products with smooth animation
     products.forEach((product, index) => {
+        const productClasses = Array.from(product.classList);
+        console.log('Product classes:', productClasses, 'Category:', category);
+        
         if (category === 'all' || product.classList.contains(category)) {
             // Show product with staggered animation
             setTimeout(() => {
                 product.classList.remove('hidden');
+                product.style.display = '';
                 product.style.animation = 'none';
                 setTimeout(() => {
                     product.style.animation = '';
@@ -40,6 +61,7 @@ function filterProducts(category) {
         } else {
             // Hide product
             product.classList.add('hidden');
+            product.style.display = 'none';
         }
     });
 }
