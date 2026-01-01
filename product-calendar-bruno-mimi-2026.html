@@ -202,6 +202,56 @@
             thumbnail.classList.add('active');
         }
 
+        // Touch swipe functionality for image gallery
+        function initImageSwipe() {
+            const mainImageContainer = document.querySelector('.main-image-container');
+            const thumbnails = document.querySelectorAll('.thumbnail');
+            
+            if (!mainImageContainer || thumbnails.length === 0) return;
+            
+            let touchStartX = 0;
+            let touchEndX = 0;
+            let touchStartY = 0;
+            let touchEndY = 0;
+            
+            mainImageContainer.addEventListener('touchstart', function(e) {
+                touchStartX = e.changedTouches[0].screenX;
+                touchStartY = e.changedTouches[0].screenY;
+            }, { passive: true });
+            
+            mainImageContainer.addEventListener('touchend', function(e) {
+                touchEndX = e.changedTouches[0].screenX;
+                touchEndY = e.changedTouches[0].screenY;
+                handleSwipe();
+            }, { passive: true });
+            
+            function handleSwipe() {
+                const swipeThreshold = 50;
+                const diffX = touchEndX - touchStartX;
+                const diffY = touchEndY - touchStartY;
+                
+                // Only handle horizontal swipes
+                if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > swipeThreshold) {
+                    const activeThumbnail = document.querySelector('.thumbnail.active');
+                    const currentIndex = Array.from(thumbnails).indexOf(activeThumbnail);
+                    let newIndex;
+                    
+                    if (diffX > 0) {
+                        // Swipe right - previous image
+                        newIndex = currentIndex > 0 ? currentIndex - 1 : thumbnails.length - 1;
+                    } else {
+                        // Swipe left - next image
+                        newIndex = currentIndex < thumbnails.length - 1 ? currentIndex + 1 : 0;
+                    }
+                    
+                    thumbnails[newIndex].click();
+                }
+            }
+        }
+        
+        // Initialize swipe on page load
+        document.addEventListener('DOMContentLoaded', initImageSwipe);
+
         // Tab functionality
         function showTab(tabName, event) {
             // Hide all tab contents

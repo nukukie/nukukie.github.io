@@ -185,6 +185,29 @@
             thumbnail.classList.add('active');
         }
 
+        function initImageSwipe() {
+            const mainImageContainer = document.querySelector('.main-image-container');
+            const thumbnails = document.querySelectorAll('.thumbnail');
+            if (!mainImageContainer || thumbnails.length === 0) return;
+            let touchStartX = 0, touchEndX = 0, touchStartY = 0, touchEndY = 0;
+            mainImageContainer.addEventListener('touchstart', function(e) {
+                touchStartX = e.changedTouches[0].screenX;
+                touchStartY = e.changedTouches[0].screenY;
+            }, { passive: true });
+            mainImageContainer.addEventListener('touchend', function(e) {
+                touchEndX = e.changedTouches[0].screenX;
+                touchEndY = e.changedTouches[0].screenY;
+                const swipeThreshold = 50, diffX = touchEndX - touchStartX, diffY = touchEndY - touchStartY;
+                if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > swipeThreshold) {
+                    const activeThumbnail = document.querySelector('.thumbnail.active');
+                    const currentIndex = Array.from(thumbnails).indexOf(activeThumbnail);
+                    const newIndex = diffX > 0 ? (currentIndex > 0 ? currentIndex - 1 : thumbnails.length - 1) : (currentIndex < thumbnails.length - 1 ? currentIndex + 1 : 0);
+                    thumbnails[newIndex].click();
+                }
+            }, { passive: true });
+        }
+        document.addEventListener('DOMContentLoaded', initImageSwipe);
+
         function showTab(tabName) {
             const tabContents = document.querySelectorAll('.tab-content');
             tabContents.forEach(content => content.style.display = 'none');

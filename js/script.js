@@ -9,6 +9,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     addQuickViewButtons();
     animateProductsOnScroll();
+    initializeTouchSwipe();
     
     // Add dropdown filter listener
     const categorySelect = document.getElementById('category-select');
@@ -114,6 +115,83 @@ function currentSlide(dot, index) {
     // Update active dot
     dots.forEach(d => d.classList.remove('active'));
     dots[index].classList.add('active');
+}
+
+// ============================================
+// TOUCH SWIPE FUNCTIONALITY FOR MOBILE
+// ============================================
+function initializeTouchSwipe() {
+    const carouselContainers = document.querySelectorAll('.carousel-container');
+    
+    carouselContainers.forEach(container => {
+        let touchStartX = 0;
+        let touchEndX = 0;
+        let touchStartY = 0;
+        let touchEndY = 0;
+        let isDragging = false;
+        
+        const imagesContainer = container.querySelector('.carousel-images');
+        
+        // Touch start
+        container.addEventListener('touchstart', function(e) {
+            touchStartX = e.changedTouches[0].screenX;
+            touchStartY = e.changedTouches[0].screenY;
+            isDragging = true;
+            imagesContainer.style.transition = 'none';
+        }, { passive: true });
+        
+        // Touch move - provide visual feedback
+        container.addEventListener('touchmove', function(e) {
+            if (!isDragging) return;
+            
+            const touchCurrentX = e.changedTouches[0].screenX;
+            const touchCurrentY = e.changedTouches[0].screenY;
+            const diffX = touchCurrentX - touchStartX;
+            const diffY = touchCurrentY - touchStartY;
+            
+            // Only handle horizontal swipes (ignore vertical scrolling)
+            if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 10) {
+                e.preventDefault();
+            }
+        }, { passive: false });
+        
+        // Touch end
+        container.addEventListener('touchend', function(e) {
+            if (!isDragging) return;
+            
+            touchEndX = e.changedTouches[0].screenX;
+            touchEndY = e.changedTouches[0].screenY;
+            isDragging = false;
+            
+            // Restore transition
+            imagesContainer.style.transition = '';
+            
+            handleSwipeGesture(container);
+        }, { passive: true });
+        
+        function handleSwipeGesture(container) {
+            const swipeThreshold = 50; // Minimum distance for swipe
+            const diffX = touchEndX - touchStartX;
+            const diffY = touchEndY - touchStartY;
+            
+            // Only handle horizontal swipes
+            if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > swipeThreshold) {
+                if (diffX > 0) {
+                    // Swipe right - go to previous image
+                    const prevButton = container.querySelector('.carousel-btn.prev');
+                    if (prevButton) {
+                        moveCarousel(prevButton, -1);
+                    }
+                } else {
+                    // Swipe left - go to next image
+                    const nextButton = container.querySelector('.carousel-btn.next');
+                    if (nextButton) {
+                        moveCarousel(nextButton, 1);
+                    }
+                }
+            }
+        }
+    });
 }
 
 // ============================================

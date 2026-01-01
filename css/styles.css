@@ -199,8 +199,10 @@ body {
 
 
 .hero-logo {
-    width: 280px;
-    height: 280px;
+    max-width: 280px;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1;
     border-radius: 50%;
     margin: 0 auto 15px;
     display: block;
@@ -339,7 +341,7 @@ body {
 .banner-container {
     max-width: 1400px;
     margin: 0 auto;
-    padding: 0 40px;
+    padding: 0 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -968,6 +970,14 @@ nav::after {
     overflow: hidden;
     border-radius: 12px;
     background: #f8f8f8;
+    cursor: grab;
+    touch-action: pan-y pinch-zoom;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.carousel-container:active {
+    cursor: grabbing;
 }
 
 .carousel-images {
@@ -1420,6 +1430,7 @@ footer {
     
     .hero-logo {
         max-width: 200px;
+        width: 90%;
     }
     
     .section-title {
@@ -1555,7 +1566,8 @@ footer {
 /* SMALL MOBILE (480px and below) */
 @media (max-width: 480px) {
     .hero-logo {
-        max-width: 120px;
+        max-width: 140px;
+        width: 85%;
     }
     
     .hero-badge {
