@@ -71,17 +71,26 @@
             </select>
         </div>
         
-        <!-- Desktop Navigation -->
-        <div class="nav-container">
-            <a class="filter-link active" data-category="all" onclick="filterProducts('all')">All Products</a>
-            <a class="filter-link" data-category="calendar" onclick="filterProducts('calendar')">Calendars</a>
-            <a class="filter-link" data-category="pin" onclick="filterProducts('pin')">Pins</a>
-            <a class="filter-link" data-category="sticker" onclick="filterProducts('sticker')">Stickers</a>
-            <a class="filter-link" data-category="bookmark" onclick="filterProducts('bookmark')">Bookmarks</a>
-            <a class="filter-link" data-category="magnetic-bookmark" onclick="filterProducts('magnetic-bookmark')">Magnetic Bookmarks</a>
-            <a class="filter-link" data-category="keychain" onclick="filterProducts('keychain')">Keychains</a>
-            <a class="filter-link" data-category="postcard" onclick="filterProducts('postcard')">Postcards</a>
+        <!-- Desktop Navigation Wrapper -->
+        <div class="desktop-nav-wrapper">
+            <!-- Desktop Navigation -->
+            <div class="nav-container">
+                <a class="filter-link active" data-category="all" onclick="filterProducts('all')">All Products</a>
+                <a class="filter-link" data-category="calendar" onclick="filterProducts('calendar')">Calendars</a>
+                <a class="filter-link" data-category="pin" onclick="filterProducts('pin')">Pins</a>
+                <a class="filter-link" data-category="sticker" onclick="filterProducts('sticker')">Stickers</a>
+                <a class="filter-link" data-category="bookmark" onclick="filterProducts('bookmark')">Bookmarks</a>
+                <a class="filter-link" data-category="magnetic-bookmark" onclick="filterProducts('magnetic-bookmark')">Magnetic Bookmarks</a>
+                <a class="filter-link" data-category="keychain" onclick="filterProducts('keychain')">Keychains</a>
+                <a class="filter-link" data-category="postcard" onclick="filterProducts('postcard')">Postcards</a>
+            </div>
         </div>
+        
+        <!-- Cart Icon (Always Visible) -->
+        <button class="cart-icon-btn" onclick="window.location.href='cart.html'" title="View Cart">
+            <i class="fas fa-shopping-cart"></i>
+            <span class="cart-badge">0</span>
+        </button>
     </nav>
 
     <!-- ============================================
@@ -118,7 +127,7 @@
             <p class="product-desc">Cute moments of Bruno and Mimi in 2026 Calendar</p>
             <div class="product-buttons">
                 <a href="product-calendar-bruno-mimi-2026.html" class="quick-view-btn">View Product</a>
-                <button class="add-to-cart-btn" title="Add to Cart"><i class="fas fa-cart-plus"></i></button>
+                <button class="add-to-cart-btn" onclick="addToCart({id: 'calendar-2026', name: 'Desk Calendar (2026)', price: 499, image: 'images/Calendar1_1.jpg'})" title="Add to Cart"><i class="fas fa-cart-plus"></i></button>
             </div>
         </div>
 
@@ -144,7 +153,7 @@
             <p class="product-desc">A tiny pin made to carry love wherever you go</p>
             <div class="product-buttons">
                 <a href="product-pin-under-the-same-umbrella.html" class="quick-view-btn">View Product</a>
-                <button class="add-to-cart-btn" title="Add to Cart"><i class="fas fa-cart-plus"></i></button>
+                <button class="add-to-cart-btn" onclick="addToCart({id: 'pin-umbrella', name: 'Under the Same Umbrella', price: 260, image: 'images/Pin1_1.jpg'})" title="Add to Cart"><i class="fas fa-cart-plus"></i></button>
             </div>
         </div>
 
@@ -168,7 +177,7 @@
             <p class="product-desc">Sweet and colorful lollipop design for fun vibes</p>
             <div class="product-buttons">
                 <a href="product-sticker-lollipop.html" class="quick-view-btn">View Product</a>
-                <button class="add-to-cart-btn" title="Add to Cart"><i class="fas fa-cart-plus"></i></button>
+                <button class="add-to-cart-btn" onclick="addToCart({id: 'sticker-lollipop', name: 'Lollipop Sticker', price: 15, image: 'images/Sticker1_1.jpg'})" title="Add to Cart"><i class="fas fa-cart-plus"></i></button>
             </div>
         </div>
 
@@ -191,7 +200,7 @@
             <p class="product-desc">Magical dinosaur with fairy wings and sparkles</p>
             <div class="product-buttons">
                 <a href="product-sticker-fairysaurus.html" class="quick-view-btn">View Product</a>
-                <button class="add-to-cart-btn" title="Add to Cart"><i class="fas fa-cart-plus"></i></button>
+                <button class="add-to-cart-btn" onclick="addToCart({id: 'sticker-fairysaurus', name: 'Fairysaurus Sticker', price: 15, image: 'images/Sticker2_1.jpg'})" title="Add to Cart"><i class="fas fa-cart-plus"></i></button>
             </div>
         </div>
 
@@ -214,7 +223,7 @@
             <p class="product-desc">Adorable fish with a stylish and fancy twist</p>
             <div class="product-buttons">
                 <a href="product-sticker-sofishticated.html" class="quick-view-btn">View Product</a>
-                <button class="add-to-cart-btn" title="Add to Cart"><i class="fas fa-cart-plus"></i></button>
+                <button class="add-to-cart-btn" onclick="addToCart({id: 'sticker-sofishticated', name: 'So-fish-ticated Sticker', price: 15, image: 'images/Sticker3_1.jpg'})" title="Add to Cart"><i class="fas fa-cart-plus"></i></button>
             </div>
         </div>
 
@@ -237,7 +246,7 @@
             <p class="product-desc">Cute lion spreading love, joy and good vibes</p>
             <div class="product-buttons">
                 <a href="product-sticker-roaring-with-love.html" class="quick-view-btn">View Product</a>
-                <button class="add-to-cart-btn" title="Add to Cart"><i class="fas fa-cart-plus"></i></button>
+                <button class="add-to-cart-btn" onclick="addToCart({id: 'sticker-roaring', name: 'Roaring with Love Sticker', price: 15, image: 'images/Sticker4_1.jpg'})" title="Add to Cart"><i class="fas fa-cart-plus"></i></button>
             </div>
         </div>
 
@@ -260,7 +269,7 @@
             <p class="product-desc">Charming and playful design that brings smiles</p>
             <div class="product-buttons">
                 <a href="product-sticker-i-am-cute.html" class="quick-view-btn">View Product</a>
-                <button class="add-to-cart-btn" title="Add to Cart"><i class="fas fa-cart-plus"></i></button>
+                <button class="add-to-cart-btn" onclick="addToCart({id: 'sticker-cute', name: 'I am cute Sticker', price: 15, image: 'images/Sticker5_1.jpg'})" title="Add to Cart"><i class="fas fa-cart-plus"></i></button>
             </div>
         </div>
 
@@ -283,7 +292,7 @@
             <p class="product-desc">Delicious looking sweet treat for dessert lovers</p>
             <div class="product-buttons">
                 <a href="product-sticker-cake.html" class="quick-view-btn">View Product</a>
-                <button class="add-to-cart-btn" title="Add to Cart"><i class="fas fa-cart-plus"></i></button>
+                <button class="add-to-cart-btn" onclick="addToCart({id: 'sticker-cake', name: 'Cake Sticker', price: 15, image: 'images/Sticker6_1.jpg'})" title="Add to Cart"><i class="fas fa-cart-plus"></i></button>
             </div>
         </div>
 
@@ -309,7 +318,7 @@
             <p class="product-desc">Soft pastels and dreamy art for sweet reading moments</p>
             <div class="product-buttons">
                 <a href="product-bookmark-strawberry-daydream.html" class="quick-view-btn">View Product</a>
-                <button class="add-to-cart-btn" title="Add to Cart"><i class="fas fa-cart-plus"></i></button>
+                <button class="add-to-cart-btn" onclick="addToCart({id: 'bookmark-strawberry', name: 'Strawberry Daydream', price: 50, image: 'images/bm_ds1_1.jpg'})" title="Add to Cart"><i class="fas fa-cart-plus"></i></button>
             </div>
         </div>
 
@@ -334,7 +343,7 @@
             <p class="product-desc">Love stories in nature for calm and peaceful reads</p>
             <div class="product-buttons">
                 <a href="product-bookmark-garden-stories.html" class="quick-view-btn">View Product</a>
-                <button class="add-to-cart-btn" title="Add to Cart"><i class="fas fa-cart-plus"></i></button>
+                <button class="add-to-cart-btn" onclick="addToCart({id: 'bookmark-garden', name: 'Garden Stories', price: 50, image: 'images/bm_ds2_1.jpg'})" title="Add to Cart"><i class="fas fa-cart-plus"></i></button>
             </div>
         </div>
 
@@ -359,7 +368,7 @@
             <p class="product-desc">Bright heart balloons that celebrates life and creativity</p>
             <div class="product-buttons">
                 <a href="product-bookmark-bloom-and-read.html" class="quick-view-btn">View Product</a>
-                <button class="add-to-cart-btn" title="Add to Cart"><i class="fas fa-cart-plus"></i></button>
+                <button class="add-to-cart-btn" onclick="addToCart({id: 'bookmark-bloom', name: 'Bloom and Read', price: 50, image: 'images/bm_ds3_1.jpg'})" title="Add to Cart"><i class="fas fa-cart-plus"></i></button>
             </div>
         </div>
 
@@ -384,7 +393,7 @@
             <p class="product-desc">An adorable ice-cream moment with Bruno and Mimi</p>
             <div class="product-buttons">
                 <a href="product-bookmark-sweet-scoops-of-fun.html" class="quick-view-btn">View Product</a>
-                <button class="add-to-cart-btn" title="Add to Cart"><i class="fas fa-cart-plus"></i></button>
+                <button class="add-to-cart-btn" onclick="addToCart({id: 'bookmark-scoops', name: 'Sweet Scoops of Fun', price: 50, image: 'images/bm_ds4_1.jpg'})" title="Add to Cart"><i class="fas fa-cart-plus"></i></button>
             </div>
         </div>
 
@@ -410,7 +419,7 @@
             <p class="product-desc">A calm little moment with Mimi, perfect for slow reading days</p>
             <div class="product-buttons">
                 <a href="product-magnetic-bookmark-mimis-cozy-aquarium.html" class="quick-view-btn">View Product</a>
-                <button class="add-to-cart-btn" title="Add to Cart"><i class="fas fa-cart-plus"></i></button>
+                <button class="add-to-cart-btn" onclick="addToCart({id: 'magbm-mimi-aquarium', name: \"Mimi's Cozy Aquarium\", price: 65, image: 'images/mg_bm1_1.jpg'})" title="Add to Cart"><i class="fas fa-cart-plus"></i></button>
             </div>
         </div>
 
@@ -435,7 +444,7 @@
             <p class="product-desc">A sweet little pause for everyday reading break</p>
             <div class="product-buttons">
                 <a href="product-magnetic-bookmark-mimi-tea-time.html" class="quick-view-btn">View Product</a>
-                <button class="add-to-cart-btn" title="Add to Cart"><i class="fas fa-cart-plus"></i></button>
+                <button class="add-to-cart-btn" onclick="addToCart({id: 'magbm-mimi-tea', name: 'Mimi Tea Time', price: 65, image: 'images/mg_bm2_1.jpg'})" title="Add to Cart"><i class="fas fa-cart-plus"></i></button>
             </div>
         </div>
 
@@ -460,7 +469,7 @@
             <p class="product-desc">Keeps your page safe while Bruno dreams among the stars</p>
             <div class="product-buttons">
                 <a href="product-magnetic-bookmark-bruno-stargazing.html" class="quick-view-btn">View Product</a>
-                <button class="add-to-cart-btn" title="Add to Cart"><i class="fas fa-cart-plus"></i></button>
+                <button class="add-to-cart-btn" onclick="addToCart({id: 'magbm-bruno-stars', name: 'Bruno Stargazing', price: 65, image: 'images/mg_bm3_1.jpg'})" title="Add to Cart"><i class="fas fa-cart-plus"></i></button>
             </div>
         </div>
 
@@ -485,7 +494,7 @@
             <p class="product-desc">A soft floral hug for your favorite book</p>
             <div class="product-buttons">
                 <a href="product-magnetic-bookmark-floral-daydream.html" class="quick-view-btn">View Product</a>
-                <button class="add-to-cart-btn" title="Add to Cart"><i class="fas fa-cart-plus"></i></button>
+                <button class="add-to-cart-btn" onclick="addToCart({id: 'magbm-floral', name: 'Floral Daydream', price: 65, image: 'images/mg_bm4_1.jpg'})" title="Add to Cart"><i class="fas fa-cart-plus"></i></button>
             </div>
         </div>
 
@@ -510,7 +519,7 @@
             <p class="product-desc">Magnetic design keeps your place secure</p>
             <div class="product-buttons">
                 <a href="product-magnetic-bookmark-mimi-with-bagpack.html" class="quick-view-btn">View Product</a>
-                <button class="add-to-cart-btn" title="Add to Cart"><i class="fas fa-cart-plus"></i></button>
+                <button class="add-to-cart-btn" onclick="addToCart({id: 'magbm-mimi-bag', name: 'Mimi with Bagpack', price: 65, image: 'images/mg_bm5_1.jpg'})" title="Add to Cart"><i class="fas fa-cart-plus"></i></button>
             </div>
         </div>
 
@@ -536,7 +545,7 @@
             <p class="product-desc">Carry a tiny bottle of happiness wherever you go</p>
             <div class="product-buttons">
                 <a href="product-keychain-bottle-of-joy.html" class="quick-view-btn">View Product</a>
-                <button class="add-to-cart-btn" title="Add to Cart"><i class="fas fa-cart-plus"></i></button>
+                <button class="add-to-cart-btn" onclick="addToCart({id: 'keychain-bottle', name: 'Bottle of Joy', price: 55, image: 'images/Keychain1_1.jpg'})" title="Add to Cart"><i class="fas fa-cart-plus"></i></button>
             </div>
         </div>
 
@@ -561,7 +570,7 @@
             <p class="product-desc">A playful charm inspired by calm waters and cute moments</p>
             <div class="product-buttons">
                 <a href="product-keychain-ocean-buddy.html" class="quick-view-btn">View Product</a>
-                <button class="add-to-cart-btn" title="Add to Cart"><i class="fas fa-cart-plus"></i></button>
+                <button class="add-to-cart-btn" onclick="addToCart({id: 'keychain-ocean', name: 'Ocean Buddy', price: 55, image: 'images/Keychain2_1.jpg'})" title="Add to Cart"><i class="fas fa-cart-plus"></i></button>
             </div>
         </div>
 
@@ -587,7 +596,7 @@
             <p class="product-desc">A happy little postcard filled with warmth and charm</p>
             <div class="product-buttons">
                 <a href="product-postcard-playful-hearts.html" class="quick-view-btn">View Product</a>
-                <button class="add-to-cart-btn" title="Add to Cart"><i class="fas fa-cart-plus"></i></button>
+                <button class="add-to-cart-btn" onclick="addToCart({id: 'postcard-hearts', name: 'Playful Hearts', price: 60, image: 'images/Postcard1_1.jpg'})" title="Add to Cart"><i class="fas fa-cart-plus"></i></button>
             </div>
         </div>
 
@@ -612,7 +621,7 @@
             <p class="product-desc">A cheerful scoop of sweetness to brighten someone's day</p>
             <div class="product-buttons">
                 <a href="product-postcard-scoops-of-happiness.html" class="quick-view-btn">View Product</a>
-                <button class="add-to-cart-btn" title="Add to Cart"><i class="fas fa-cart-plus"></i></button>
+                <button class="add-to-cart-btn" onclick="addToCart({id: 'postcard-scoops', name: 'Scoops of Happiness', price: 60, image: 'images/Postcard2_1.jpg'})" title="Add to Cart"><i class="fas fa-cart-plus"></i></button>
             </div>
         </div>
 
@@ -637,7 +646,7 @@
             <p class="product-desc">A playful little moment that pops up with surprise and laughter, just like a friendly peek-a-boo</p>
             <div class="product-buttons">
                 <a href="product-postcard-peek-a-boo.html" class="quick-view-btn">View Product</a>
-                <button class="add-to-cart-btn" title="Add to Cart"><i class="fas fa-cart-plus"></i></button>
+                <button class="add-to-cart-btn" onclick="addToCart({id: 'postcard-peekaboo', name: 'Peek-a-Boo', price: 60, image: 'images/Postcard3_1.jpg'})" title="Add to Cart"><i class="fas fa-cart-plus"></i></button>
             </div>
         </div>
 
@@ -662,7 +671,7 @@
             <p class="product-desc">A gentle reminder that love feels best when shared</p>
             <div class="product-buttons">
                 <a href="product-postcard-together-always.html" class="quick-view-btn">View Product</a>
-                <button class="add-to-cart-btn" title="Add to Cart"><i class="fas fa-cart-plus"></i></button>
+                <button class="add-to-cart-btn" onclick="addToCart({id: 'postcard-together', name: 'Together Always', price: 60, image: 'images/Postcard4_1.jpg'})" title="Add to Cart"><i class="fas fa-cart-plus"></i></button>
             </div>
         </div>
 
@@ -687,7 +696,7 @@
             <p class="product-desc">For calm moments, kind words and thoughtful notes</p>
             <div class="product-buttons">
                 <a href="product-postcard-soft-days.html" class="quick-view-btn">View Product</a>
-                <button class="add-to-cart-btn" title="Add to Cart"><i class="fas fa-cart-plus"></i></button>
+                <button class="add-to-cart-btn" onclick="addToCart({id: 'postcard-soft', name: 'Soft Days', price: 60, image: 'images/Postcard5_1.jpg'})" title="Add to Cart"><i class="fas fa-cart-plus"></i></button>
             </div>
         </div>
 
@@ -712,7 +721,7 @@
             <p class="product-desc">Perfect for everyday notes, smiles and soft memories</p>
             <div class="product-buttons">
                 <a href="product-postcard-everyday-love.html" class="quick-view-btn">View Product</a>
-                <button class="add-to-cart-btn" title="Add to Cart"><i class="fas fa-cart-plus"></i></button>
+                <button class="add-to-cart-btn" onclick="addToCart({id: 'postcard-everyday', name: 'Everyday Love', price: 60, image: 'images/Postcard6_1.jpg'})" title="Add to Cart"><i class="fas fa-cart-plus"></i></button>
             </div>
         </div>
     </main>
@@ -815,7 +824,40 @@
         </div>
     </footer>
 
+    <!-- ============================================
+         CART MODAL
+         ============================================ -->
+    <div id="cartModal" class="cart-modal">
+        <div class="cart-modal-content">
+            <div class="cart-header">
+                <h2><i class="fas fa-shopping-bag"></i> Your Cart</h2>
+                <button class="close-btn" onclick="closeCartModal()">&times;</button>
+            </div>
+            
+            <div id="emptyCartMessage" class="empty-cart-message">
+                <i class="fas fa-shopping-bag"></i>
+                <p>Your cart is empty</p>
+                <p class="empty-cart-subtitle">Add some handmade items to get started!</p>
+            </div>
+            
+            <div id="cartItems" class="cart-items">
+                <!-- Cart items will be inserted here by JavaScript -->
+            </div>
+            
+            <div class="cart-footer">
+                <div class="cart-total-section">
+                    <span class="total-label">Total:</span>
+                    <span id="cartTotal" class="total-amount">₹0</span>
+                </div>
+                <button class="checkout-btn" onclick="proceedToCheckout()">
+                    <i class="fas fa-check-circle"></i> Proceed to Checkout
+                </button>
+            </div>
+        </div>
+    </div>
+
     <!-- External JavaScript -->
+    <script src="js/cart.js"></script>
     <script src="js/script.js"></script>
 </body>
 </html>

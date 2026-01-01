@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mimi's Cozy Aquarium - Magnetic Bookmark | Nukukie</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <!-- External CSS -->
     <link rel="stylesheet" href="css/styles.css">
@@ -22,7 +23,10 @@
     <!-- NAVIGATION -->
     <nav class="product-nav">
         <a href="index.html" class="back-btn">← Back to Shop</a>
-        <img src="images/signature.png" alt="Nukukie" class="nav-logo-img">
+        <button class="cart-icon" onclick="window.location.href='cart.html'">
+            <i class="fas fa-shopping-cart"></i>
+            <span class="cart-count">0</span>
+        </button>
     </nav>
 
     <!-- PRODUCT DETAILS -->
@@ -71,7 +75,7 @@
                 </div>
 
                 <div class="product-actions">
-                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSejCZi0WWlWtbkBu4tl3fF0PrGLsS-AgurIZOh0xPUuL4EOkw/viewform" target="_blank" class="place-order-btn">Place Order</a>
+                    <button class="add-to-cart-btn" onclick="addToCart('magbm-mimi-aquarium', 'Mimi\'s Cozy Aquarium', 65, 'images/mg_bm1_1.jpg')">Add to Cart</button>
                 </div>
 
                 <div class="product-meta">
@@ -194,5 +198,6 @@
             window.event.target.classList.add('active');
         }
     </script>
+    <script src="js/cart.js"></script>
 </body>
 </html>

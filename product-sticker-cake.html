@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cake Sticker - Nukukie</title>
     
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
     <!-- External CSS -->
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/product-page.css">
@@ -22,7 +25,10 @@
     <!-- NAVIGATION -->
     <nav class="product-nav">
         <a href="index.html" class="back-btn">← Back to Shop</a>
-        <img src="images/signature.png" alt="Nukukie" class="nav-logo-img">
+        <button class="cart-icon-btn-product" onclick="window.location.href='cart.html'" title="View Cart">
+            <i class="fas fa-shopping-bag"></i>
+            <span class="cart-badge">0</span>
+        </button>
     </nav>
 
     <!-- PRODUCT DETAILS -->
@@ -69,7 +75,9 @@
                 </div>
 
                 <div class="product-actions">
-                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSejCZi0WWlWtbkBu4tl3fF0PrGLsS-AgurIZOh0xPUuL4EOkw/viewform" target="_blank" class="place-order-btn">Place Order</a>
+                    <button class="add-to-cart-btn-page" onclick="addToCart({id: 'sticker-cake', name: 'Cake Sticker', price: 15, image: 'images/Sticker6_1.jpg'})">
+                        <i class="fas fa-shopping-bag"></i> Add to Cart
+                    </button>
                 </div>
 
                 <div class="product-meta">
@@ -189,5 +197,6 @@
             event.target.classList.add('active');
         }
     </script>
+    <script src="js/cart.js"></script>
 </body>
 </html>
