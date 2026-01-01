@@ -3,15 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nukukie Crafts - Handmade Products</title>
+    <title>Nukukie - Handmade Products</title>
     
     <!-- Preload critical resources -->
     <link rel="preload" as="image" href="images/nukukie1.jpg" fetchpriority="high">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
     <!-- External CSS -->
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
+    <!-- ============================================
+         PROMOTIONAL BANNER
+         ============================================ -->
+    <div class="promo-banner">
+        <div class="promo-text">
+            <span>✦ Get 10% off on orders above ₹599/- ✦</span>
+            <span>✦ Get 10% off on orders above ₹599/- ✦</span>
+            <span>✦ Get 10% off on orders above ₹599/- ✦</span>
+        </div>
+    </div>
+
     <!-- ============================================
          HERO BANNER
          ============================================ -->
@@ -43,6 +57,21 @@
          NAVIGATION / CATEGORY FILTER
          ============================================ -->
     <nav class="category-nav">
+        <!-- Mobile Dropdown Filter -->
+        <div class="mobile-filter-container">
+            <select class="mobile-filter-dropdown" onchange="filterProducts(this.value)">
+                <option value="all">All Products</option>
+                <option value="calendar">Calendars</option>
+                <option value="pin">Pins</option>
+                <option value="sticker">Stickers</option>
+                <option value="bookmark">Bookmarks</option>
+                <option value="magnetic-bookmark">Magnetic Bookmarks</option>
+                <option value="keychain">Keychains</option>
+                <option value="postcard">Postcards</option>
+            </select>
+        </div>
+        
+        <!-- Desktop Navigation -->
         <div class="nav-container">
             <a class="filter-link active" data-category="all" onclick="filterProducts('all')">All Products</a>
             <a class="filter-link" data-category="calendar" onclick="filterProducts('calendar')">Calendars</a>
@@ -83,10 +112,14 @@
                 <span class="dot" onclick="currentSlide(this, 2)"></span>
                 <span class="dot" onclick="currentSlide(this, 3)"></span>
             </div>
-            <h3>2026 Calendar with Planner</h3>
-            <p class="product-desc">Stay organized with this beautifully designed calendar</p>
+            <h3>Desk Calendar (2026)</h3>
+            <span class="product-tag">Calendar</span>
             <p class="product-price">₹499</p>
-            <button class="quick-view-btn" onclick="quickView(this)">Quick View</button>
+            <p class="product-desc">Cute moments of Bruno and Mimi in 2026 Calendar</p>
+            <div class="product-buttons">
+                <a href="product-calendar-bruno-mimi-2026.html" class="quick-view-btn">View Product</a>
+                <button class="add-to-cart-btn" title="Add to Cart"><i class="fas fa-cart-plus"></i></button>
+            </div>
         </div>
 
         <!-- Pins - 1 product -->
@@ -105,9 +138,14 @@
                 <span class="dot" onclick="currentSlide(this, 1)"></span>
                 <span class="dot" onclick="currentSlide(this, 2)"></span>
             </div>
-            <h3>Custom Enamel Pins</h3>
-            <p class="product-desc">Unique handcrafted enamel pins for your collection</p>
+            <h3>Under the Same Umbrella</h3>
+            <span class="product-tag">Enamel Pin</span>
             <p class="product-price">₹260</p>
+            <p class="product-desc">A tiny pin made to carry love wherever you go</p>
+            <div class="product-buttons">
+                <a href="product-pin-under-the-same-umbrella.html" class="quick-view-btn">View Product</a>
+                <button class="add-to-cart-btn" title="Add to Cart"><i class="fas fa-cart-plus"></i></button>
+            </div>
         </div>
 
         <!-- Stickers - 6 products -->
@@ -124,9 +162,14 @@
                 <span class="dot active" onclick="currentSlide(this, 0)"></span>
                 <span class="dot" onclick="currentSlide(this, 1)"></span>
             </div>
-            <h3>Lollipop sticker</h3>
-            <p class="product-desc">Sweet and colorful lollipop design</p>
+            <h3>Lollipop Sticker</h3>
+            <span class="product-tag">Sticker</span>
             <p class="product-price">₹15</p>
+            <p class="product-desc">Sweet and colorful lollipop design for fun vibes</p>
+            <div class="product-buttons">
+                <a href="product-sticker-lollipop.html" class="quick-view-btn">View Product</a>
+                <button class="add-to-cart-btn" title="Add to Cart"><i class="fas fa-cart-plus"></i></button>
+            </div>
         </div>
 
         <div class="product-card sticker">
@@ -142,9 +185,14 @@
                 <span class="dot active" onclick="currentSlide(this, 0)"></span>
                 <span class="dot" onclick="currentSlide(this, 1)"></span>
             </div>
-            <h3>Fairysaurus sticker</h3>
-            <p class="product-desc">Magical dinosaur with fairy wings</p>
+            <h3>Fairysaurus Sticker</h3>
+            <span class="product-tag">Sticker</span>
             <p class="product-price">₹15</p>
+            <p class="product-desc">Magical dinosaur with fairy wings and sparkles</p>
+            <div class="product-buttons">
+                <a href="product-sticker-fairysaurus.html" class="quick-view-btn">View Product</a>
+                <button class="add-to-cart-btn" title="Add to Cart"><i class="fas fa-cart-plus"></i></button>
+            </div>
         </div>
 
         <div class="product-card sticker">
@@ -161,8 +209,13 @@
                 <span class="dot" onclick="currentSlide(this, 1)"></span>
             </div>
             <h3>So-fish-ticated Sticker</h3>
-            <p class="product-desc">Adorable fish with a stylish twist</p>
+            <span class="product-tag">Sticker</span>
             <p class="product-price">₹15</p>
+            <p class="product-desc">Adorable fish with a stylish and fancy twist</p>
+            <div class="product-buttons">
+                <a href="product-sticker-sofishticated.html" class="quick-view-btn">View Product</a>
+                <button class="add-to-cart-btn" title="Add to Cart"><i class="fas fa-cart-plus"></i></button>
+            </div>
         </div>
 
         <div class="product-card sticker">
@@ -178,9 +231,14 @@
                 <span class="dot active" onclick="currentSlide(this, 0)"></span>
                 <span class="dot" onclick="currentSlide(this, 1)"></span>
             </div>
-            <h3>Roaring with Love sticker</h3>
-            <p class="product-desc">Cute lion spreading love and joy</p>
+            <h3>Roaring with Love Sticker</h3>
+            <span class="product-tag">Sticker</span>
             <p class="product-price">₹15</p>
+            <p class="product-desc">Cute lion spreading love, joy and good vibes</p>
+            <div class="product-buttons">
+                <a href="product-sticker-roaring-with-love.html" class="quick-view-btn">View Product</a>
+                <button class="add-to-cart-btn" title="Add to Cart"><i class="fas fa-cart-plus"></i></button>
+            </div>
         </div>
 
         <div class="product-card sticker">
@@ -196,9 +254,14 @@
                 <span class="dot active" onclick="currentSlide(this, 0)"></span>
                 <span class="dot" onclick="currentSlide(this, 1)"></span>
             </div>
-            <h3>I am cute sticker</h3>
-            <p class="product-desc">Charming and playful design</p>
+            <h3>I am cute Sticker</h3>
+            <span class="product-tag">Sticker</span>
             <p class="product-price">₹15</p>
+            <p class="product-desc">Charming and playful design that brings smiles</p>
+            <div class="product-buttons">
+                <a href="product-sticker-i-am-cute.html" class="quick-view-btn">View Product</a>
+                <button class="add-to-cart-btn" title="Add to Cart"><i class="fas fa-cart-plus"></i></button>
+            </div>
         </div>
 
         <div class="product-card sticker">
@@ -214,9 +277,14 @@
                 <span class="dot active" onclick="currentSlide(this, 0)"></span>
                 <span class="dot" onclick="currentSlide(this, 1)"></span>
             </div>
-            <h3>Cake sticker</h3>
-            <p class="product-desc">Delicious looking sweet treat</p>
+            <h3>Cake Sticker</h3>
+            <span class="product-tag">Sticker</span>
             <p class="product-price">₹15</p>
+            <p class="product-desc">Delicious looking sweet treat for dessert lovers</p>
+            <div class="product-buttons">
+                <a href="product-sticker-cake.html" class="quick-view-btn">View Product</a>
+                <button class="add-to-cart-btn" title="Add to Cart"><i class="fas fa-cart-plus"></i></button>
+            </div>
         </div>
 
         <!-- Bookmarks - 4 products -->
@@ -235,9 +303,14 @@
                 <span class="dot" onclick="currentSlide(this, 1)"></span>
                 <span class="dot" onclick="currentSlide(this, 2)"></span>
             </div>
-            <h3>Artistic Bookmark 1</h3>
-            <p class="product-desc">Beautiful design for book lovers</p>
+            <h3>Strawberry Daydream</h3>
+            <span class="product-tag">Bookmark</span>
             <p class="product-price">₹50</p>
+            <p class="product-desc">Soft pastels and dreamy art for sweet reading moments</p>
+            <div class="product-buttons">
+                <a href="product-bookmark-strawberry-daydream.html" class="quick-view-btn">View Product</a>
+                <button class="add-to-cart-btn" title="Add to Cart"><i class="fas fa-cart-plus"></i></button>
+            </div>
         </div>
 
         <div class="product-card bookmark">
@@ -255,9 +328,14 @@
                 <span class="dot" onclick="currentSlide(this, 1)"></span>
                 <span class="dot" onclick="currentSlide(this, 2)"></span>
             </div>
-            <h3>Artistic Bookmark 2</h3>
-            <p class="product-desc">Beautiful design for book lovers</p>
+            <h3>Garden Stories</h3>
+            <span class="product-tag">Bookmark</span>
             <p class="product-price">₹50</p>
+            <p class="product-desc">Love stories in nature for calm and peaceful reads</p>
+            <div class="product-buttons">
+                <a href="product-bookmark-garden-stories.html" class="quick-view-btn">View Product</a>
+                <button class="add-to-cart-btn" title="Add to Cart"><i class="fas fa-cart-plus"></i></button>
+            </div>
         </div>
 
         <div class="product-card bookmark">
@@ -275,9 +353,14 @@
                 <span class="dot" onclick="currentSlide(this, 1)"></span>
                 <span class="dot" onclick="currentSlide(this, 2)"></span>
             </div>
-            <h3>Artistic Bookmark 3</h3>
-            <p class="product-desc">Beautiful design for book lovers</p>
+            <h3>Bloom and Read</h3>
+            <span class="product-tag">Bookmark</span>
             <p class="product-price">₹50</p>
+            <p class="product-desc">Bright heart balloons that celebrates life and creativity</p>
+            <div class="product-buttons">
+                <a href="product-bookmark-bloom-and-read.html" class="quick-view-btn">View Product</a>
+                <button class="add-to-cart-btn" title="Add to Cart"><i class="fas fa-cart-plus"></i></button>
+            </div>
         </div>
 
         <div class="product-card bookmark">
@@ -295,9 +378,14 @@
                 <span class="dot" onclick="currentSlide(this, 1)"></span>
                 <span class="dot" onclick="currentSlide(this, 2)"></span>
             </div>
-            <h3>Artistic Bookmark 4</h3>
-            <p class="product-desc">Beautiful design for book lovers</p>
+            <h3>Sweet Scoops of Fun</h3>
+            <span class="product-tag">Bookmark</span>
             <p class="product-price">₹50</p>
+            <p class="product-desc">An adorable ice-cream moment with Bruno and Mimi</p>
+            <div class="product-buttons">
+                <a href="product-bookmark-sweet-scoops-of-fun.html" class="quick-view-btn">View Product</a>
+                <button class="add-to-cart-btn" title="Add to Cart"><i class="fas fa-cart-plus"></i></button>
+            </div>
         </div>
 
         <!-- Magnetic Bookmarks - 5 products -->
@@ -316,9 +404,14 @@
                 <span class="dot" onclick="currentSlide(this, 1)"></span>
                 <span class="dot" onclick="currentSlide(this, 2)"></span>
             </div>
-            <h3>Magnetic Bookmark 1</h3>
-            <p class="product-desc">Magnetic design keeps your place secure</p>
+            <h3>Mimi's Cozy Aquarium</h3>
+            <span class="product-tag">Magnetic Bookmark</span>
             <p class="product-price">₹65</p>
+            <p class="product-desc">A calm little moment with Mimi, perfect for slow reading days</p>
+            <div class="product-buttons">
+                <a href="product-magnetic-bookmark-mimis-cozy-aquarium.html" class="quick-view-btn">View Product</a>
+                <button class="add-to-cart-btn" title="Add to Cart"><i class="fas fa-cart-plus"></i></button>
+            </div>
         </div>
 
         <div class="product-card magnetic-bookmark">
@@ -336,9 +429,14 @@
                 <span class="dot" onclick="currentSlide(this, 1)"></span>
                 <span class="dot" onclick="currentSlide(this, 2)"></span>
             </div>
-            <h3>Magnetic Bookmark 2</h3>
-            <p class="product-desc">Magnetic design keeps your place secure</p>
+            <h3>Mimi Tea Time</h3>
+            <span class="product-tag">Magnetic Bookmark</span>
             <p class="product-price">₹65</p>
+            <p class="product-desc">A sweet little pause for everyday reading break</p>
+            <div class="product-buttons">
+                <a href="product-magnetic-bookmark-mimi-tea-time.html" class="quick-view-btn">View Product</a>
+                <button class="add-to-cart-btn" title="Add to Cart"><i class="fas fa-cart-plus"></i></button>
+            </div>
         </div>
 
         <div class="product-card magnetic-bookmark">
@@ -356,9 +454,14 @@
                 <span class="dot" onclick="currentSlide(this, 1)"></span>
                 <span class="dot" onclick="currentSlide(this, 2)"></span>
             </div>
-            <h3>Magnetic Bookmark 3</h3>
-            <p class="product-desc">Magnetic design keeps your place secure</p>
+            <h3>Bruno Stargazing</h3>
+            <span class="product-tag">Magnetic Bookmark</span>
             <p class="product-price">₹65</p>
+            <p class="product-desc">Keeps your page safe while Bruno dreams among the stars</p>
+            <div class="product-buttons">
+                <a href="product-magnetic-bookmark-bruno-stargazing.html" class="quick-view-btn">View Product</a>
+                <button class="add-to-cart-btn" title="Add to Cart"><i class="fas fa-cart-plus"></i></button>
+            </div>
         </div>
 
         <div class="product-card magnetic-bookmark">
@@ -376,9 +479,14 @@
                 <span class="dot" onclick="currentSlide(this, 1)"></span>
                 <span class="dot" onclick="currentSlide(this, 2)"></span>
             </div>
-            <h3>Magnetic Bookmark 4</h3>
-            <p class="product-desc">Magnetic design keeps your place secure</p>
+            <h3>Floral Daydream</h3>
+            <span class="product-tag">Magnetic Bookmark</span>
             <p class="product-price">₹65</p>
+            <p class="product-desc">A soft floral hug for your favorite book</p>
+            <div class="product-buttons">
+                <a href="product-magnetic-bookmark-floral-daydream.html" class="quick-view-btn">View Product</a>
+                <button class="add-to-cart-btn" title="Add to Cart"><i class="fas fa-cart-plus"></i></button>
+            </div>
         </div>
 
         <div class="product-card magnetic-bookmark">
@@ -396,9 +504,14 @@
                 <span class="dot" onclick="currentSlide(this, 1)"></span>
                 <span class="dot" onclick="currentSlide(this, 2)"></span>
             </div>
-            <h3>Magnetic Bookmark 5</h3>
-            <p class="product-desc">Magnetic design keeps your place secure</p>
+            <h3>Mimi with Bagpack</h3>
+            <span class="product-tag">Magnetic Bookmark</span>
             <p class="product-price">₹65</p>
+            <p class="product-desc">Magnetic design keeps your place secure</p>
+            <div class="product-buttons">
+                <a href="product-magnetic-bookmark-mimi-with-bagpack.html" class="quick-view-btn">View Product</a>
+                <button class="add-to-cart-btn" title="Add to Cart"><i class="fas fa-cart-plus"></i></button>
+            </div>
         </div>
 
         <!-- Keychain - 1 product (you can add more if needed) -->
@@ -417,9 +530,14 @@
                 <span class="dot" onclick="currentSlide(this, 1)"></span>
                 <span class="dot" onclick="currentSlide(this, 2)"></span>
             </div>
-            <h3>Custom Keychain 1</h3>
-            <p class="product-desc">Personalized keychain for everyday use</p>
-            <p class="product-price">₹129</p>
+            <h3>Bottle of Joy</h3>
+            <span class="product-tag">Keychain</span>
+            <p class="product-price">₹55</p>
+            <p class="product-desc">Carry a tiny bottle of happiness wherever you go</p>
+            <div class="product-buttons">
+                <a href="product-keychain-bottle-of-joy.html" class="quick-view-btn">View Product</a>
+                <button class="add-to-cart-btn" title="Add to Cart"><i class="fas fa-cart-plus"></i></button>
+            </div>
         </div>
 
         <div class="product-card keychain">
@@ -437,9 +555,14 @@
                 <span class="dot" onclick="currentSlide(this, 1)"></span>
                 <span class="dot" onclick="currentSlide(this, 2)"></span>
             </div>
-            <h3>Custom Keychain 2</h3>
-            <p class="product-desc">Personalized keychain for everyday use</p>
-            <p class="product-price">₹129</p>
+            <h3>Ocean Buddy</h3>
+            <span class="product-tag">Keychain</span>
+            <p class="product-price">₹55</p>
+            <p class="product-desc">A playful charm inspired by calm waters and cute moments</p>
+            <div class="product-buttons">
+                <a href="product-keychain-ocean-buddy.html" class="quick-view-btn">View Product</a>
+                <button class="add-to-cart-btn" title="Add to Cart"><i class="fas fa-cart-plus"></i></button>
+            </div>
         </div>
 
         <!-- Postcard - 6 products -->
@@ -458,9 +581,14 @@
                 <span class="dot" onclick="currentSlide(this, 1)"></span>
                 <span class="dot" onclick="currentSlide(this, 2)"></span>
             </div>
-            <h3>Postcard 1</h3>
-            <p class="product-desc">Send love with handcrafted postcards</p>
+            <h3>Playful Hearts</h3>
+            <span class="product-tag">Postcard</span>
             <p class="product-price">₹60</p>
+            <p class="product-desc">A happy little postcard filled with warmth and charm</p>
+            <div class="product-buttons">
+                <a href="product-postcard-playful-hearts.html" class="quick-view-btn">View Product</a>
+                <button class="add-to-cart-btn" title="Add to Cart"><i class="fas fa-cart-plus"></i></button>
+            </div>
         </div>
 
         <div class="product-card postcard">
@@ -478,9 +606,14 @@
                 <span class="dot" onclick="currentSlide(this, 1)"></span>
                 <span class="dot" onclick="currentSlide(this, 2)"></span>
             </div>
-            <h3>Postcard 2</h3>
-            <p class="product-desc">Send love with handcrafted postcards</p>
+            <h3>Scoops of Happiness</h3>
+            <span class="product-tag">Postcard</span>
             <p class="product-price">₹60</p>
+            <p class="product-desc">A cheerful scoop of sweetness to brighten someone's day</p>
+            <div class="product-buttons">
+                <a href="product-postcard-scoops-of-happiness.html" class="quick-view-btn">View Product</a>
+                <button class="add-to-cart-btn" title="Add to Cart"><i class="fas fa-cart-plus"></i></button>
+            </div>
         </div>
 
         <div class="product-card postcard">
@@ -498,9 +631,14 @@
                 <span class="dot" onclick="currentSlide(this, 1)"></span>
                 <span class="dot" onclick="currentSlide(this, 2)"></span>
             </div>
-            <h3>Postcard 3</h3>
-            <p class="product-desc">Send love with handcrafted postcards</p>
+            <h3>Peek-a-Boo</h3>
+            <span class="product-tag">Postcard</span>
             <p class="product-price">₹60</p>
+            <p class="product-desc">A playful little moment that pops up with surprise and laughter, just like a friendly peek-a-boo</p>
+            <div class="product-buttons">
+                <a href="product-postcard-peek-a-boo.html" class="quick-view-btn">View Product</a>
+                <button class="add-to-cart-btn" title="Add to Cart"><i class="fas fa-cart-plus"></i></button>
+            </div>
         </div>
 
         <div class="product-card postcard">
@@ -518,9 +656,14 @@
                 <span class="dot" onclick="currentSlide(this, 1)"></span>
                 <span class="dot" onclick="currentSlide(this, 2)"></span>
             </div>
-            <h3>Postcard 4</h3>
-            <p class="product-desc">Send love with handcrafted postcards</p>
+            <h3>Together Always</h3>
+            <span class="product-tag">Postcard</span>
             <p class="product-price">₹60</p>
+            <p class="product-desc">A gentle reminder that love feels best when shared</p>
+            <div class="product-buttons">
+                <a href="product-postcard-together-always.html" class="quick-view-btn">View Product</a>
+                <button class="add-to-cart-btn" title="Add to Cart"><i class="fas fa-cart-plus"></i></button>
+            </div>
         </div>
 
         <div class="product-card postcard">
@@ -538,9 +681,14 @@
                 <span class="dot" onclick="currentSlide(this, 1)"></span>
                 <span class="dot" onclick="currentSlide(this, 2)"></span>
             </div>
-            <h3>Postcard 5</h3>
-            <p class="product-desc">Send love with handcrafted postcards</p>
+            <h3>Soft Days</h3>
+            <span class="product-tag">Postcard</span>
             <p class="product-price">₹60</p>
+            <p class="product-desc">For calm moments, kind words and thoughtful notes</p>
+            <div class="product-buttons">
+                <a href="product-postcard-soft-days.html" class="quick-view-btn">View Product</a>
+                <button class="add-to-cart-btn" title="Add to Cart"><i class="fas fa-cart-plus"></i></button>
+            </div>
         </div>
 
         <div class="product-card postcard">
@@ -558,21 +706,30 @@
                 <span class="dot" onclick="currentSlide(this, 1)"></span>
                 <span class="dot" onclick="currentSlide(this, 2)"></span>
             </div>
-            <h3>Postcard 6</h3>
-            <p class="product-desc">Send love with handcrafted postcards</p>
+            <h3>Everyday Love</h3>
+            <span class="product-tag">Postcard</span>
             <p class="product-price">₹60</p>
+            <p class="product-desc">Perfect for everyday notes, smiles and soft memories</p>
+            <div class="product-buttons">
+                <a href="product-postcard-everyday-love.html" class="quick-view-btn">View Product</a>
+                <button class="add-to-cart-btn" title="Add to Cart"><i class="fas fa-cart-plus"></i></button>
+            </div>
         </div>
     </main>
+    
+    <div class="order-section">
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSejCZi0WWlWtbkBu4tl3fF0PrGLsS-AgurIZOh0xPUuL4EOkw/viewform" class="order-button">Place Your Order & Get Receipt</a>
+    </div>
     </section>
 
     <!-- ============================================
          ABOUT SECTION
          ============================================ -->
     <section class="about-section">
-        <h2>✨ About Nukukie Crafts ✨</h2>
+        <h2>✨ About Nukukie ✨</h2>
         <div class="about-content">
             <div class="about-text">
-                <p>Welcome to <strong>Nukukie Crafts</strong>! 🎨 We create unique, handmade products with love and creativity. Each item is carefully crafted to bring joy, personality, and a touch of magic to your everyday life.</p>
+                <p>Welcome to <strong>Nukukie</strong>! 🎨 We create unique, handmade products with love and creativity. Each item is carefully crafted to bring joy, personality, and a touch of magic to your everyday life.</p>
                 <p>From beautifully designed calendars and adorable enamel pins to stunning stickers, elegant bookmarks, and charming keychains – every product tells its own special story. We believe in making ordinary moments extraordinary with our creative designs!</p>
                 <p>Founded with a passion for art and handmade crafts, we pour our hearts into every single piece we create. Your support means the world to us! 💕</p>
             </div>
@@ -609,17 +766,13 @@
         </div>
     </section>
 
-    <div class="order-section">
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSejCZi0WWlWtbkBu4tl3fF0PrGLsS-AgurIZOh0xPUuL4EOkw/viewform" class="order-button">Place Your Order & Get Receipt</a>
-    </div>
-
     <!-- ============================================
          FOOTER SECTION
          ============================================ -->
     <footer>
         <div class="footer-content">
             <div class="footer-about">
-                <h3>Nukukie Crafts 🌸</h3>
+                <h3>Nukukie 🌸</h3>
                 <p>Creating handmade magic since the beginning! We pour our hearts into every sticker, pin, bookmark, calendar, and keychain we make. Your support and love inspire us every day! 💕</p>
                 <img src="images/signature.png" alt="NK Signature" class="signature" loading="lazy" decoding="async">
             </div>
@@ -657,7 +810,7 @@
         </div>
         
         <div class="footer-bottom">
-            <p>&copy; 2025 Nukukie Crafts. Handmade with <span class="hearts">♥</span> for craft lovers everywhere!</p>
+            <p>&copy; 2025 Nukukie. Handmade with <span class="hearts">♥</span> for craft lovers everywhere!</p>
             <p>All designs are 100% original and handmade with care ✨</p>
         </div>
     </footer>
